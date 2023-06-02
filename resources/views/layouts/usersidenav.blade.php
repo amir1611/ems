@@ -122,9 +122,9 @@
                     </label>
                 </div> --}}
 
-                {{-- <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
-                </div> --}}
+                 <div class="user">
+                    <img src="assets/customer.png" alt="">
+                </div>
             </div>
 
             <!-- ======================= Cards ================== -->
