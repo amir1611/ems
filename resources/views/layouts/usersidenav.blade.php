@@ -18,18 +18,18 @@
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="logo-apple"></ion-icon>
+                            <ion-icon name="home-sharp"></ion-icon>
                         </span>
-                        <span class="title">Brand Name</span>
+                        <span class="title">E-MUNAKAHAT</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
+                            <ion-icon name="person-outline"></ion-icon>
                         </span>
-                        <span class="title">Dashboard</span>
+                        <span class="title">Profile</span>
                     </a>
                 </li>
 
@@ -38,54 +38,73 @@
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Customers</span>
+                        <span class="title">Marriage Application</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
+                            <ion-icon name="people-circle-outline"></ion-icon>
                         </span>
-                        <span class="title">Messages</span>
+                        <span class="title">Marriage Registration</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="help-outline"></ion-icon>
+                            <ion-icon name="color-wand-outline"></ion-icon>
                         </span>
-                        <span class="title">Help</span>
+                        <span class="title">Referral Application</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
+                            <ion-icon name="heart-half-outline"></ion-icon>
                         </span>
-                        <span class="title">Settings</span>
+                        <span class="title">Complaints / Advice Service</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <ion-icon name="folder-open-outline"></ion-icon>
                         </span>
-                        <span class="title">Password</span>
+                        <span class="title">Copies of Documents</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
+                        <span class="icon">
+                            <ion-icon name="build-outline"></ion-icon>
+                        </span>
+                        <span class="title">Document Correction</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        {{-- {{ __('Logout') }} --}}
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
                         <span class="title">Sign Out</span>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </a>
                 </li>
+
+
+
+
+
+
             </ul>
         </div>
 

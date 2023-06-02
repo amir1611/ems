@@ -6,7 +6,7 @@
   <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">12,594</div>
+                        <div class="numbers">12,5934</div>
                         <div class="cardName">Daily testing</div>
                     </div>
 
