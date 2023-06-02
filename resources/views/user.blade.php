@@ -7,7 +7,7 @@
                 <div class="card">
                     <div>
                         <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="cardName">Daily counts</div>
                     </div>
 
                     <div class="iconBx">
