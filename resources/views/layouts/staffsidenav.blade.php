@@ -61,6 +61,23 @@
                 </li>
 
                 <li>
+                    <a href="{{route('staff.consultant.manage')}}">
+                        <span class="icon">
+                            <ion-icon name="heart-half-outline"></ion-icon>
+                        </span>
+                        <span class="title">Consultant</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="heart-half-outline"></ion-icon>
+                        </span>
+                        <span class="title">Consultation</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="heart-half-outline"></ion-icon>
