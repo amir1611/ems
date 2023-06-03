@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
 				'name' => 'admin',
 				'gender' => 'male',
 				'staff_id' => 'stf321',
-				'email' => 'lauhacker98@hotmail.com',
+				'email' => 'admin@gmail.com',
 				'contact' => '0987654321',
                 'email_verified_at' => '2023-06-03 09:16:17',
 				'role' => 2,
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
 				'name' => 'amir',
 				'gender' => 'male',
 				'staff_id' => 'stf2020',
-				'email' => 'sukujah@gmail.com',
+				'email' => 'staff@gmail.com',
 				'contact' => '0387451298',
                 'email_verified_at' => '2023-06-03 09:16:17',
 				'role' => 1,
@@ -39,7 +39,17 @@ class UserSeeder extends Seeder
 			],
 
 
-
+            [
+				'ic' => '022134321987',
+				'name' => 'ali',
+				'gender' => 'male',
+				'staff_id' => 'usr2123',
+				'email' => 'user@gmail.com',
+				'contact' => '0387988765',
+                'email_verified_at' => '2023-06-09 06:16:17',
+				'role' => 0,
+				'password' => bcrypt('1234'),
+			],
 
 		];
 
