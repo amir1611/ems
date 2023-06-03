@@ -23,16 +23,16 @@ class HomeController extends Controller
 	 */
 	public function indexUser()
 	{
-		return view('user');
+		return view('module1.userprofile');
 	}
 
 	public function indexStaff()
 	{
-		return view('staff');
+		return view('module1.staff');
 	}
 
 	public function indexAdmin()
 	{
-		return view('admin');
+		return view('module1.admin');
 	}
 }
