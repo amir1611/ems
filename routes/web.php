@@ -36,19 +36,19 @@ Route::prefix('staff')->name('staff.')->group(function () {
 
 
 Route::prefix('user')->name('user.')->group(function () {
-	
+
 	Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
-		Route::get('/user', [HomeController::class, 'indexUser'])->name('user.home');
+		Route::get('/', [HomeController::class, 'indexUser'])->name('home');
 	});
-	
+
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
-	
+
 	Route::group(['middleware' => ['auth', 'verified', 'user-role:admin']], function () {
-		Route::get('/admin', [HomeController::class, 'indexAdmin'])->name('admin.home');
+		Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
 	});
-	
+
 });
 
 
