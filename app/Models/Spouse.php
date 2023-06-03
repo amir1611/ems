@@ -26,4 +26,4 @@ class Spouse extends Model
         return $this->hasMany(Consultation::class, 'cons_id');
     }
 }
-}
+
