@@ -23,16 +23,16 @@ class HomeController extends Controller
 	 */
 	public function indexUser()
 	{
-		return view('manageProfile.userprofile');
+		return view('module1.userprofile');
 	}
 
 	public function indexStaff()
 	{
-		return view('manageProfile.staff');
+		return view('module1.staff');
 	}
 
 	public function indexAdmin()
 	{
-		return view('manageProfile.admin');
+		return view('module1.admin');
 	}
 }
