@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('references', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('code');
+            $table->string('value');
         });
     }
 

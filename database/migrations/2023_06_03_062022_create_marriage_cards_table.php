@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('marriage_cards', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('certificate_id')->nullable();
+
         });
     }
 

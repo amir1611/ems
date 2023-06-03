@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->timestamp('dateTime')->nullable();
+            $table->string('description')->nullable();
+            $table->string('document')->nullable();
+            $table->string('location')->nullable();
+            $table->foreignId('staff_id')->nullable();
+            $table->foreignId('sp_id')->nullable();
+            $table->foreignId('app_id')->nullable();
+            $table->foreignId('cons_id')->nullable();
         });
     }
 

@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('incentives', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('applicant_id')->nullable();
+            $table->string('job')->nullable();
+            $table->string('job_type')->nullable();
+            $table->double('salary')->nullable();
+            $table->date('date')->nullable();
+            $table->string('status')->nullable();
+            $table->string('heir')->nullable();
+            $table->binary('docs')->nullable();
         });
     }
 

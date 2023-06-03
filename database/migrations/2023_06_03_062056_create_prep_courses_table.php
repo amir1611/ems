@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('prep_courses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('applicant_id')->nullable();
+            $table->foreignId('staff_id')->nullable();
+            $table->binary('payment_proof')->nullable();
+            $table->binary('marriage_requestInfo')->nullable();
         });
     }
 

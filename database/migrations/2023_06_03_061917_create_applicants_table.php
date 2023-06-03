@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->string('name')->nullable();
+            $table->integer('age')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('houseaddress')->nullable();
             $table->timestamps();
         });
     }

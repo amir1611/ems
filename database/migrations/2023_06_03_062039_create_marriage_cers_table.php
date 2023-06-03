@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('marriage_cers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('application_id')->nullable();
+
         });
     }
 
