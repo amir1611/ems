@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
 				'contact' => '0987654321',
                 'email_verified_at' => '2023-06-01 09:16:17',
 				'role' => 2,
-				'password' => bcrypt('12345678'),
+				'password' => bcrypt('1234'),
 			],
 		];
 
