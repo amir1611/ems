@@ -1,4 +1,4 @@
-@extends('layouts.staffsidenav')
+@extends('layouts.staffNav')
 
 @section('content')
 
