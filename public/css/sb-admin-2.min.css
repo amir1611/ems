@@ -2415,8 +2415,8 @@ textarea.form-control {
 }
 
 .btn:hover {
-    color: #4a5568;
-    text-decoration: none
+    background-color: black;
+    color: white;
 }
 
 .btn.focus,.btn:focus {
@@ -2429,7 +2429,8 @@ textarea.form-control {
 }
 
 .btn:not(:disabled):not(.disabled) {
-    cursor: pointer
+    cursor: pointer;
+    border: 1px solid blueviolet;
 }
 
 a.btn.disabled,fieldset:disabled a.btn {
@@ -10819,7 +10820,7 @@ a:focus {
 
 @media (min-width: 768px) {
     .sidebar {
-        width:14rem!important
+        width: 17rem!important;
     }
 
     .sidebar .nav-item .collapse {
@@ -11884,7 +11885,7 @@ form.user .btn-user {
 }
 
 footer.sticky-footer {
-    padding: 2rem 0;
+    padding: 1rem 0;
     flex-shrink: 0
 }
 

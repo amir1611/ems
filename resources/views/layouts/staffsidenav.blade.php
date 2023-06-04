@@ -69,7 +69,7 @@
                         <span class="title">Consultant</span>
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -145,7 +145,7 @@
                 </div>
             </div>
 
-           
+
     @yield('content')
 
     <!-- =========== Scripts =========  -->
