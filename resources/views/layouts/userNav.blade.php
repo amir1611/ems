@@ -57,7 +57,7 @@
         
         <!-- Nav Item - Profile -->
         <li class="nav-item ">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('user.consultation.manage')}}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Consultation') }}</span>
             </a>

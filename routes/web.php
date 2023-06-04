@@ -18,7 +18,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
+	return redirect('/login');
 });
 
 Auth::routes();
@@ -33,7 +33,6 @@ Route::prefix('staff')->name('staff.')->group(function () {
 		Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
 		Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
 	});
-
 });
 
 Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function () {
@@ -43,11 +42,13 @@ Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function
 Route::prefix('user')->name('user.')->group(function () {
 
 
-    Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
-        Route::get('/', [HomeController::class, 'indexUser'])->name('home');
-        Route::put('/{id}/update', [UserController::class, 'update'])->name('update');
-
-    });
+	Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
+		Route::get('/', [HomeController::class, 'indexUser'])->name('home');
+		Route::put('/{id}/update', [UserController::class, 'update'])->name('update');
+		Route::get('/consultation/manage', [ConsultationController::class, 'userManage'])->name('consultation.manage');
+		Route::get('/consultation/create', [ConsultationController::class, 'create'])->name('consultation.create');
+		Route::put('/consultation/store', [ConsultationController::class, 'store'])->name('consultation.store');
+	});
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -55,7 +56,4 @@ Route::prefix('admin')->name('admin.')->group(function () {
 	Route::group(['middleware' => ['auth', 'verified', 'user-role:admin']], function () {
 		Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
 	});
-
 });
-
-
