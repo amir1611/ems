@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ConsultantController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +33,7 @@ Route::prefix('staff')->name('staff.')->group(function () {
 		Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
 		Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
 	});
-	
+
 });
 
 Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function () {
@@ -41,10 +42,12 @@ Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function
 
 Route::prefix('user')->name('user.')->group(function () {
 
-	Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
-		Route::get('/', [HomeController::class, 'indexUser'])->name('home');
-	});
 
+    Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
+        Route::get('/', [HomeController::class, 'indexUser'])->name('home');
+        Route::put('/{id}/update', [UserController::class, 'update'])->name('update');
+
+    });
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
