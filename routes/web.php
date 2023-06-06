@@ -37,6 +37,10 @@ Route::prefix('staff')->name('staff.')->group(function () {
     });
 });
 
+Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function () {
+    Route::get('/', [HomeController::class, 'indexStaff'])->name('home');
+});
+
 
 
 Route::prefix('user')->name('user.')->group(function () {
