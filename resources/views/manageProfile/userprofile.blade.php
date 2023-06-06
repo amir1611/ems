@@ -62,7 +62,7 @@
     <div class="container2"
         style="background-color: white;border-radius: 30px;margin-top: -1px;margin-bottom: 20px;margin-left: 394px;margin-right: 491px;">
 
-        <form action="{{ route('user.update-password') }}" method="POST">
+        <form action="{{ route('user.update-password-user') }}" method="POST">
 
             @csrf
             <div class="row mt-4 profile-header">
