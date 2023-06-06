@@ -43,7 +43,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
 
 	Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
-		Route::get('/', [HomeController::class, 'indexUser'])->name('home');
+		Route::get('/profile', [HomeController::class, 'indexUser'])->name('home');
 		Route::put('/{id}/update', [UserController::class, 'update'])->name('update');
 		Route::get('/consultation/manage', [ConsultationController::class, 'userManage'])->name('consultation.manage');
 		Route::get('/consultation/create', [ConsultationController::class, 'create'])->name('consultation.create');
@@ -57,3 +57,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
 	});
 });
+
+
+
