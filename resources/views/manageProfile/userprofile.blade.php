@@ -2,7 +2,7 @@
 
 
 @section('main-content')
-    <div class="container2" style="background-color: white;border-radius: 30px;">
+    <div class="container2" style="background-color: white;border-radius: 30px;margin-left: 395px;margin-right: 498px;">
         <form action="{{ route('user.update', [auth()->user()->id]) }}" method="post">
             @method('PUT')
             @csrf
@@ -12,7 +12,7 @@
             <div class="table-responsive">
                 <table class="table mt-3 profile-table">
                     <tr>
-                        <th class="col-md-4">IC Number</th>
+                        <th class="col-md-4" style=" width: 200px;">IC Number</th>
                         <td>{{ Auth::guard('web')->user()->ic }}</td>
                     </tr>
                     <tr>
@@ -59,8 +59,9 @@
     </div>
 
 
-    <div class="container2" style="background-color: white;border-radius: 30px;margin-top: 59px;margin-bottom: 20px">
-        {{-- <form action="{{ route('user.update', [auth()->user()->id]) }}" method="post"> --}}
+    <div class="container2"
+        style="background-color: white;border-radius: 30px;margin-top: -1px;margin-bottom: 20px;margin-left: 394px;margin-right: 491px;">
+
         <form action="{{ route('user.update-password') }}" method="POST">
 
             @csrf
@@ -71,38 +72,37 @@
                 <table class="table mt-3 profile-table">
 
                     <tr>
-                        <th class="profile-label">Old Password</th>
+                        <th class="profile-label" style="width: 200px;">Old Password</th>
                         <td>
                             <input name="old_password" type="password"
                                 class="form-control profile-input @error('old_password') is-invalid @enderror"
                                 id="oldPasswordInput" placeholder="Old Password">
                         </td>
-
                         @error('old_password')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </tr>
 
                     <tr>
-                        <th class="profile-label">New Password</th>
+                        <th class="profile-label" style="width: 200px;">New Password</th>
                         <td>
                             <input name="new_password" type="password"
                                 class="form-control profile-input @error('new_password') is-invalid @enderror"
                                 id="newPasswordInput" placeholder="New Password">
                         </td>
-
                         @error('new_password')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </tr>
 
                     <tr>
-                        <th class="profile-label">Confirm New Password</th>
+                        <th class="profile-label" style="width: 200px;">Confirm New Password</th>
                         <td>
                             <input name="new_password_confirmation" type="password" class="form-control profile-input"
                                 id="confirmNewPasswordInput" placeholder="Confirm New Password">
                         </td>
                     </tr>
+
 
 
                 </table>
