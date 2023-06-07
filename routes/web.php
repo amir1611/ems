@@ -32,7 +32,7 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::post('/profile', [HomeController::class, 'updatePassword'])->name('update-password-staff');
         Route::get('/consultation/manage', [ConsultationController::class, 'manage'])->name('consultation.manage');
         Route::get('/consultation/{id}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
-        Route::get('/consultation/{id}/update', [ConsultationController::class, 'update'])->name('consultation.update');
+        Route::put('/consultation/update/{id}', [ConsultationController::class, 'update'])->name('consultation.update');
         Route::get('/consultant/manage', [ConsultantController::class, 'manage'])->name('consultant.manage');
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');

@@ -96,9 +96,9 @@ class ConsultationController extends Controller
         return view('manageConsultation.edit1', compact('data','consultants','id'));
     }
 
-    public function update(Request $request, $consultation)
+    public function update(Request $request, $id)
     {
-        Consultation::find($consultation)->update($request->all());
+        Consultation::find($id)->update($request->all());
 
         return redirect()->route('staff.consultation.manage')
             ->with('success', "User Successfully Updated");
