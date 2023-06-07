@@ -56,7 +56,7 @@ class LoginController extends Controller
 			} else if (auth()->user()->role == 'user') {
 				return redirect()->route('user.home');
 			}
-		} else {
+		} else { 
 			return redirect()
 				->route('login')
 				->with('error', 'Invalid ic number or password.');

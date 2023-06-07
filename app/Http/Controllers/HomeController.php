@@ -30,12 +30,12 @@ class HomeController extends Controller
 
     public function indexStaff()
     {
-        return view('manageProfile.staff');
+        return view('manageProfile.staffprofile');
     }
 
     public function indexAdmin()
     {
-        return view('manageProfile.admin');
+        return view('manageProfile.adminprofile');
     }
 
 
