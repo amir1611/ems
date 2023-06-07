@@ -70,9 +70,9 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('user.consultation.manage')}}">
                 <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Complaint') }}</span>
+                <span>{{ __('Consultation') }}</span>
             </a>
         </li>
 
