@@ -10,7 +10,8 @@ class Consultation extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'dateTime',
+        'date',
+        'slot',
         'description',
         'document',
         'location',
@@ -22,7 +23,7 @@ class Consultation extends Model
 
     public function staff()
     {
-        return $this->belongsTo(Staff::class, 'staff_id');
+        return $this->belongsTo(User::class, 'staff_id');
     }
 
     public function spouse()
@@ -32,7 +33,7 @@ class Consultation extends Model
     
     public function applicant()
     {
-        return $this->belongsTo(User::class, 'app_id');
+        return $this->belongsTo(Applicant::class, 'app_id');
     }
 
     public function consultant()

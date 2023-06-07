@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('age')->nullable();
             $table->string('nationality')->nullable();
             $table->string('houseaddress')->nullable();
+            $table->date('birthdate')->nullable();
             $table->timestamps();
         });
     }
