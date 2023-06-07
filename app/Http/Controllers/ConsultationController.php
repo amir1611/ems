@@ -87,13 +87,13 @@ class ConsultationController extends Controller
     public function edit($id)
     {
         $data = Consultation::with('spouse','applicant.user')->find($id)->toArray();
-        $consultant = Consultant::all();
+        $consultants = Consultant::all();
         // dd($data);
         // $role = Reference::where('code', $data['ref_role_id'])
         //     ->where('name', 'roles')
         //     ->get();
 
-        return view('manageConsultation.edit1', compact('data','consultant','id'));
+        return view('manageConsultation.edit1', compact('data','consultants','id'));
     }
 
     public function update(Request $request, $consultation)
