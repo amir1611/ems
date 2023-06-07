@@ -52,10 +52,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        User::find($id)->update($request->all());
+        // Retrieve the user
+        $user = User::find($id);
 
-        return redirect()->route('user.home');
+        // Update the user's information
+        $user->update($request->all());
+
+        // Determine the role-specific home route
+        $homeRoute = 'user.home';
+        if ($user->role === 'staff') {
+            $homeRoute = 'staff.home';
+        } elseif ($user->role === 'admin') {
+            $homeRoute = 'admin.home';
+        }
+
+        // Redirect to the appropriate home route based on the user's role
+        return redirect()->route($homeRoute);
     }
 
     /**
