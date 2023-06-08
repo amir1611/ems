@@ -26,11 +26,12 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{route('user.home')}}">
                         <span class="icon">
                             <ion-icon name="person-outline"></ion-icon>
                         </span>
                         <span class="title">Profile</span>
+
                     </a>
                 </li>
 

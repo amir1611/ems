@@ -17,9 +17,6 @@ class ConsultantController extends Controller
     public function manage()
     {
         $datas = Consultant::with('location','department')->paginate(10);
-        // dd($datas);
-        // $datas = Consultant::paginate(10);
-        // dd($datas);
         return view('manageConsultant.manage',compact('datas'));
     }
 

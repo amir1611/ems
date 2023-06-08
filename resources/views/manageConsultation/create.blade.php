@@ -73,7 +73,7 @@
                                                 <label class="form-control-label" for="name">Name<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="name" class="form-control"
-                                                    name="applicant_name" placeholder="Name" value="{{$user->name}}">
+                                                    name="applicant_name" placeholder="Name" value="{{ $user->name }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -132,8 +132,7 @@
                                 </div>
 
                             </div>
-                            <div class="tab-pane fade" id="spouse" role="tabpanel"
-                                aria-labelledby="spouse_tab">
+                            <div class="tab-pane fade" id="spouse" role="tabpanel" aria-labelledby="spouse_tab">
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -200,23 +199,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="marriage" role="tabpanel"
-                                aria-labelledby="marriage_tab">
+                            <div class="tab-pane fade" id="marriage" role="tabpanel" aria-labelledby="marriage_tab">
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="date">Consultation Date<span
                                                         class="small text-danger">*</span></label>
-                                                <input type="date" id="date" class="form-control"
-                                                    name="date" placeholder="date">
+                                                <input type="date" id="date" class="form-control" name="date"
+                                                    placeholder="date">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="slot">slot</label>
-                                                <input type="text" id="slot" class="form-control"
-                                                    name="slot" placeholder="slot">
+                                                <input type="text" id="slot" class="form-control" name="slot"
+                                                    placeholder="slot">
                                             </div>
                                         </div>
                                     </div>
@@ -231,12 +229,22 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            {{-- <div class="form-group">
-                                                <label class="form-control-label" for="spouse_IcNum">IC Number<span
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="location">Location<span
                                                         class="small text-danger">*</span></label>
-                                                <input type="text" id="spouse_IcNum" class="form-control"
-                                                    name="spouse_IcNum" placeholder="IC Number">
-                                            </div> --}}
+                                                <input type="text" id="location" class="form-control"
+                                                    name="location" placeholder="Location">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label class="form-control-label" for="description">Description<span
+                                                    class="small text-danger">*</span></label>
+                                            <textarea id="description" class="form-control" name="description" placeholder="Description">
+
+                                            </textarea>
+
                                         </div>
                                     </div>
 

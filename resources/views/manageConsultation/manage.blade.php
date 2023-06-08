@@ -41,15 +41,15 @@
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                        name</p>
+                                       {{$data->applicant->user->name}} data</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                        Spouse</p>
+                                       {{$data->spouse_name}} Spouse</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                        date</p>
+                                       {{$data->created_at->format('Y-m-d')}} date</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
@@ -57,11 +57,11 @@
                                 </td>
                                 <td class="align-middle text-end">
                                     <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                        <a class="text-info me-3"><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
-                                        <a class="text-success me-3"><i class="fa fa-pencil-square-o fa-lg"
+                                        <a class="text-info me-3" href="{{route('staff.consultation.edit', ['id' => $data->id])}}"><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
+                                        {{-- <a class="text-success me-3"><i class="fa fa-pencil-square-o fa-lg"
                                                 aria-hidden="true"></i></a>
                                         <a class="text-danger" href="#"><i class="fa fa-trash-o fa-lg"
-                                                aria-hidden="true"></i></a>
+                                                aria-hidden="true"></i></a> --}}
                                     </div>
                                 </td>
                             </tr>

@@ -10119,6 +10119,15 @@ a:focus {
     background-size: cover
 }
 
+.bg-gradient-primary3 {
+    background-image:  linear-gradient(to right, #2daee2, #4a00e0);
+    background-size: cover
+}
+
+.bg-gradient-primary4 {
+    background-image: linear-gradient(to right, #e22d2d, #a700e0);
+    background-size: cover
+}
 
 
 .bg-gradient-secondary {
