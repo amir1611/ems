@@ -63,9 +63,9 @@
 
         <!-- Nav Item - About -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('user.prepCourse.manage')}}">
                 <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Referral Application') }}</span>
+                <span>{{ __('Marriage Preparation') }}</span>
             </a>
         </li>
 

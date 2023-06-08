@@ -28,4 +28,9 @@ class Applicant extends Model
     {
         return $this->hasMany(Consultation::class);
     }
+
+    public function consultation()
+    {
+        return $this->hasMany(Consultation::class);
+    }
 }
