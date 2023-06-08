@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ConsultantController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PrepCourseController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,6 +57,9 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/consultation/manage', [ConsultationController::class, 'userManage'])->name('consultation.manage');
         Route::get('/consultation/create', [ConsultationController::class, 'create'])->name('consultation.create');
         Route::put('/consultation/store', [ConsultationController::class, 'store'])->name('consultation.store');
+      		Route::get('/prepCourse/manage', [PrepCourseController::class, 'manage'])->name('prepCourse.manage');
+		Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
+		Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
     });
 });
 
