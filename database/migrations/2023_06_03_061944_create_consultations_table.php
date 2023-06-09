@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->date('date')->nullable();
-            $table->string('slot')->nullable();
+            $table->foreignId('slot')->nullable();
             $table->text('description')->nullable();
             $table->string('document')->nullable();
-            $table->string('location')->nullable();
+            $table->foreignId('location')->nullable();
             $table->foreignId('staff_id')->nullable();
             $table->foreignId('sp_id')->nullable();
             $table->foreignId('app_id')->nullable();

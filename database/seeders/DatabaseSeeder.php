@@ -60,21 +60,21 @@ class DatabaseSeeder extends Seeder
         'code' => 4,
         'value' => 'consultation',
       ],
-      //roles
+      //slot
       [
-        'name' => 'roles',
+        'name' => 'slot',
         'code' => 8,
-        'value' => 'user',
+        'value' => '10.30 am - 12.30 pm',
       ],
       [
-        'name' => 'roles',
+        'name' => 'slot',
         'code' => 9,
-        'value' => 'expert',
+        'value' => '12.30 am - 2.30 pm',
       ],
       [
-        'name' => 'roles',
+        'name' => 'slot',
         'code' => 10,
-        'value' => 'admin',
+        'value' => '2.30 am - 4.30 am',
       ],
       //complaint-type
       [

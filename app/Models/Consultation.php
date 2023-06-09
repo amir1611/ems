@@ -33,11 +33,21 @@ class Consultation extends Model
     
     public function applicant()
     {
-        return $this->belongsTo(Applicant::class, 'app_id');
+        return $this->belongsTo(Applicantc::class, 'app_id');
     }
 
     public function consultant()
     {
         return $this->belongsTo(Consultant::class, 'cons_id');
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Reference::class, 'ref_location_id');
+    }
+
+    public function slot()
+    {
+        return $this->belongsTo(Reference::class, 'ref_slot_id');
     }
 }

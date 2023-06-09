@@ -91,7 +91,8 @@
                                                 <label class="form-control-label" for="applicant_email">Email address<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="email" id="applicant_email" class="form-control"
-                                                    name="applicant_email" placeholder="example@example.com">
+                                                    name="applicant_email"
+                                                    placeholder="example@example.com"value="{{ $user->email }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -99,7 +100,8 @@
                                                 <label class="form-control-label" for="applicant_IcNum">IC Number<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="applicant_IcNum" class="form-control"
-                                                    name="applicant_IcNum" placeholder="IC Number">
+                                                    name="applicant_IcNum" placeholder="IC Number"
+                                                    value="{{ $user->ic }}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +111,8 @@
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="applicant_gender">Gender</label>
                                                 <input type="text" id="applicant_gender" class="form-control"
-                                                    name="applicant_gender" placeholder="gender">
+                                                    name="applicant_gender"
+                                                    placeholder="gender"value="{{ $user->gender }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -117,7 +120,8 @@
                                                 <label class="form-control-label" for="applicant_phoneNo">Phone
                                                     Number</label>
                                                 <input type="text" id="phoneNo" class="form-control"
-                                                    name="applicant_phoneNo" placeholder="phone number">
+                                                    name="applicant_phoneNo" placeholder="phone number"
+                                                    value="{{ $user->contact }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -212,9 +216,13 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="slot">slot</label>
-                                                <input type="text" id="slot" class="form-control" name="slot"
-                                                    placeholder="slot">
+                                                <label class="form-control-label" for="ref_slot_id">slot</label>
+                                                <select class="form-control" name="ref_slot_id" required>
+                                                    <option value="" disabled selected>Select a slot</option>
+                                                    @foreach ($slots as $slot)
+                                                        <option value="{{ $slot->id }}">{{ $slot->value }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -229,11 +237,21 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <label class="form-control-label" for="location">Location<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="location" class="form-control"
                                                     name="location" placeholder="Location">
+                                            </div> --}}
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="ref_location_id">location</label>
+                                                <select class="form-control" name="ref_location_id" required>
+                                                    <option value="" disabled selected>Select a Location</option>
+                                                    @foreach ($locations as $location)
+                                                        <option value="{{ $location->id }}">{{ $location->value }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
