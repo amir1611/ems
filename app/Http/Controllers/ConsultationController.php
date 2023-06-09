@@ -14,14 +14,14 @@ class ConsultationController extends Controller
     //
     public function manage()
     {
-        $datas = Consultation::with('staff','consultant','applicant','spouse')->paginate(3);
+        $datas = Consultation::with('staff', 'consultant', 'applicant', 'spouse')->paginate(3);
         // dd($datas);
         return view('manageConsultation.manage', compact('datas'));
     }
 
     public function userManage()
     {
-        $datas = Consultation::with('staff','consultant','applicant','spouse')->paginate(9);
+        $datas = Consultation::with('staff', 'consultant', 'applicant', 'spouse')->paginate(9);
         // dd($datas);
         return view('manageConsultation.userManage', compact('datas'));
     }
@@ -31,7 +31,7 @@ class ConsultationController extends Controller
         $user =  Auth()->user();
         return view('manageConsultation.create', compact('user'));
     }
-    
+
     public function store(Request $request)
     {
         $user = ([
@@ -44,15 +44,11 @@ class ConsultationController extends Controller
         User::where('id', Auth()->user()->id)->update($user);
 
         // User::find(Auth()->user())->update($user);
-        $applicant = ([
-            'user_id'=> Auth()->user()->id,
-            'birthdate' => $request->applicant_birthdate,
-            'nationality' => $request->applicant_nationality
-        ]);
+        $applicant = Applicant::where('user_id', Auth()->user()->id)->first();
+        $applicant->birthdate = $request->applicant_birthdate;
+        $applicant->nationality = $request->applicant_nationality;
+        $applicant->save();
 
-        $app = new Applicant();
-        $app->fill($applicant);
-        $app->save();
         // Applicant::create($applicant);
         $spouse = ([
 
@@ -69,31 +65,31 @@ class ConsultationController extends Controller
         $sp->fill($spouse);
         $sp->save();
         $consultation = ([
-        'sp_id'=>$sp->id,
-        'app_id'=>$app->id,
-        'date'=> $request->date,
-        'location'=> $request->location,
-        'slot'=> $request->slot,
-        'description'=> $request->description,
-        'document'=> $request->document,
+            'sp_id' => $sp->id,
+            'app_id' => $app->id,
+            'date' => $request->date,
+            'location' => $request->location,
+            'slot' => $request->slot,
+            'description' => $request->description,
+            'document' => $request->document,
         ]);
         Consultation::create($consultation);
         // dd($app,$sp,$consultation,$spouse);
 
         return redirect()->route('user.consultation.manage')
-        ->with('success', "consultation Successfully Posted!");
+            ->with('success', "consultation Successfully Posted!");
     }
 
     public function edit($id)
     {
-        $data = Consultation::with('spouse','applicant.user')->find($id)->toArray();
+        $data = Consultation::with('spouse', 'applicant.user')->find($id)->toArray();
         $consultants = Consultant::all();
         // dd($data);
         // $role = Reference::where('code', $data['ref_role_id'])
         //     ->where('name', 'roles')
         //     ->get();
 
-        return view('manageConsultation.edit1', compact('data','consultants','id'));
+        return view('manageConsultation.edit1', compact('data', 'consultants', 'id'));
     }
 
     public function update(Request $request, $id)
