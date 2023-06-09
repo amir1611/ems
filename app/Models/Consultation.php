@@ -11,14 +11,15 @@ class Consultation extends Model
     protected $fillable = [
         'id',
         'date',
-        'slot',
+        'ref_slot_id',
         'description',
         'document',
-        'location',
+        'ref_location_id',
         'staff_id',
         'sp_id',
         'app_id',
-        'cons_id'
+        'cons_id',
+        'ref_status_id'
     ];
 
     public function staff()
@@ -33,7 +34,7 @@ class Consultation extends Model
     
     public function applicant()
     {
-        return $this->belongsTo(Applicantc::class, 'app_id');
+        return $this->belongsTo(Applicant::class, 'app_id');
     }
 
     public function consultant()
@@ -50,4 +51,10 @@ class Consultation extends Model
     {
         return $this->belongsTo(Reference::class, 'ref_slot_id');
     }
+    
+    public function status()
+    {
+        return $this->belongsTo(Reference::class, 'ref_status_id');
+    }
+    
 }

@@ -43,11 +43,48 @@ class ConsultantController extends Controller
             ->with('success', "consultant Successfully Added");
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        dd($request);
+        Consultant::find($id)->update($request->all());
+        // dd($request);
         return redirect()->route('staff.consultant.manage')
         ->with('success',"consultant Successfully Updated");
 
+    }
+    
+    public function edit($id)
+    {
+        $consultant = Consultant::find($id)->with('location','department')->first();
+        $locations = Reference::where('name', 'location')->orderBy('code')->get();
+        $departments = Reference::where('name', 'department')->orderBy('code')->get();
+        
+        return view('manageConsultant.edit', compact('locations','departments','consultant'));
+
+    }
+
+    public function show($id)
+    {
+        $consultant = Consultant::find($id)->with('location','department')->first();
+        
+        return view('manageConsultant.show', compact('consultant'));
+    }
+
+    // public function destroy($id)
+    // {
+    //     Consultant::find($id)->delete();
+
+    //     return response()->json(['success' => true]);
+    // }
+    public function destroy($id)
+    {
+        $consultant = Consultant::find($id);
+        
+        if (!$consultant) {
+            return redirect()->back()->with('error', 'consultant not found.');
+        }
+        
+        $consultant->delete();
+        
+        return redirect()->route('staff.consultant.manage')->with('success', 'consultant deleted successfully.');
     }
 }

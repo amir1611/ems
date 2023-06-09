@@ -18,11 +18,44 @@ class DatabaseSeeder extends Seeder
     ]);
 
     $this->registerReference();
+    $this->registerApplicant();
   }
-
+  
+  public function registerApplicant()
+  {
+    $datas = [
+      //applicant
+      [
+        'user_id' => '3',
+      ],
+      [
+        'user_id' => '4',
+      ],
+    ];
+    
+    foreach ($datas as $data) {
+      DB::table('applicants')->insert($data);
+    }
+  }
   public function registerReference()
   {
     $datas = [
+      //consultation-status
+      [
+        'name' => 'consultation-status',
+        'code' => 1,
+        'value' => 'Pending',
+      ],
+      [
+        'name' => 'consultation-status',
+        'code' => 2,
+        'value' => 'Declined',
+      ],
+      [
+        'name' => 'consultation-status',
+        'code' => 3,
+        'value' => 'Approved',
+      ],
       //location
       [
         'name' => 'location',
@@ -91,22 +124,6 @@ class DatabaseSeeder extends Seeder
         'name' => 'complaint-type',
         'code' => 3,
         'value' => 'Inapproriate Feedback',
-      ],
-      //complaint-status
-      [
-        'name' => 'complaint-status',
-        'code' => 1,
-        'value' => 'In Investigation',
-      ],
-      [
-        'name' => 'complaint-status',
-        'code' => 2,
-        'value' => 'On Hold',
-      ],
-      [
-        'name' => 'complaint-status',
-        'code' => 3,
-        'value' => 'Resolved',
       ],
     ];
 

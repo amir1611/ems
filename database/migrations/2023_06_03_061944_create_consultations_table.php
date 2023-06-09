@@ -15,14 +15,15 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->date('date')->nullable();
-            $table->foreignId('slot')->nullable();
+            $table->foreignId('ref_slot_id')->nullable();
             $table->text('description')->nullable();
             $table->string('document')->nullable();
-            $table->foreignId('location')->nullable();
+            $table->foreignId('ref_location_id')->nullable();
             $table->foreignId('staff_id')->nullable();
             $table->foreignId('sp_id')->nullable();
             $table->foreignId('app_id')->nullable();
             $table->foreignId('cons_id')->nullable();
+            $table->foreignId('ref_status_id')->default(1);
         });
     }
 
