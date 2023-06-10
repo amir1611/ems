@@ -1,12 +1,8 @@
 @extends('layouts.adminNav')
 
 @section('content')
-<div class="container">
-	<div class="row justify-content-center">
-		<div class="col-md-8">
-			<div class="card">
-				<div class="card-header">{{ __('Register') }}</div>
 
+<<<<<<< HEAD
 				<div class="card-body">
 					{{-- <form method="POST" action="{{ route('admin.registerstaff') }}"> --}}
 						@csrf
@@ -128,6 +124,8 @@
 		</div>
 	</div>
 </div>
+=======
+>>>>>>> parent of c3bef77 (ui module1)
 
 
 
