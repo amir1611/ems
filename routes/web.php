@@ -37,7 +37,7 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultation/show/{id}', [ConsultationController::class, 'show'])->name('consultation.show');
         Route::put('/consultation/update/{id}', [ConsultationController::class, 'update'])->name('consultation.update');
         Route::get('/consultation/{id}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
-        
+
         Route::delete('/consultant/destroy/{id}', [ConsultantController::class, 'destroy'])->name('consultant.destroy');
         Route::put('/consultant/update/{id}', [ConsultantController::class, 'update'])->name('consultant.update');
         Route::get('/consultant/{id}/edit', [ConsultantController::class, 'edit'])->name('consultant.edit');
@@ -74,5 +74,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::group(['middleware' => ['auth', 'verified', 'user-role:admin']], function () {
         Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
+   
     });
 });
