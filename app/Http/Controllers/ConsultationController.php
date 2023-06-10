@@ -9,6 +9,9 @@ use App\Models\Spouse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Reference;
+use Illuminate\Support\Facades\Storage;
+use League\Flysystem\Visibility;
+use Illuminate\Support\Facades\Response;
 
 class ConsultationController extends Controller
 {
@@ -38,6 +41,17 @@ class ConsultationController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
+        $file = $request->file('file');
+        // dd($file,$request);
+        $fileName = $request->input('applicant_name') . $request->input('date') . '.pdf';
+
+        Storage::disk('local')->makeDirectory('template');
+
+        // Store the file inside the 'template' directory
+        Storage::disk('local')->put('template/' . $fileName, file_get_contents($file->getRealPath()));
+
+
         $user = ([
             'name' => $request->applicant_name,
             'email' =>  $request->applicant_email,
@@ -77,7 +91,7 @@ class ConsultationController extends Controller
             'ref_location_id' => $request->ref_location_id,
             'ref_slot_id' => $request->ref_slot_id,
             'description' => $request->description,
-            'document' => $request->document,
+            'document' => $fileName,
             // 'ref_status_id' => 3,
         ]);
         Consultation::create($consultation);
@@ -112,7 +126,7 @@ class ConsultationController extends Controller
         return redirect()->route('staff.consultation.manage')
             ->with('success', "User Successfully Updated");
     }
-    
+
     public function decline($id)
     {
         $status = [
@@ -126,10 +140,29 @@ class ConsultationController extends Controller
 
     public function show($id)
     {
-        $data = Consultation::with('spouse','applicant.user','location','slot','status')->find($id)
-        ->toArray();
+        $data = Consultation::with('spouse', 'applicant.user', 'location', 'slot', 'status')->find($id)
+            ->toArray();
         // dd($data);
-        return view('manageConsultation.show',compact('data','id'));
+        return view('manageConsultation.show', compact('data', 'id'));
     }
-   
+
+    public function displayFile($fileName)
+    {
+        $filePath = 'template/' . $fileName;
+
+        // Check if the file exists
+        if (Storage::disk('local')->exists($filePath)) {
+            $file = Storage::disk('local')->get($filePath);
+            $mimeType = Storage::disk('local')->mimeType($filePath);
+
+            // Return the file response with appropriate headers
+            return Response::make($file, 200, [
+                'Content-Type' => $mimeType,
+                'Content-Disposition' => 'inline; filename="' . $fileName . '"',
+            ]);
+        } else {
+            // File not found
+            abort(404);
+        }
+    }
 }

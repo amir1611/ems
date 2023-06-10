@@ -47,15 +47,19 @@
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->applicant->name}} name</p>
+                                       {{$data->applicant->user->name}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                       {{$data->applicant->user->ic}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->Spouse->name}} Spouse</p>
+                                       {{$data->Spouse->name}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                       {{$data->Spouse->ic}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->created_at->format('Y-m-d')}} date</p>
+                                       {{$data->created_at}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">

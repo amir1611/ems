@@ -35,7 +35,7 @@
 
                 {{-- <div class="card-body"> --}}
 
-                <form method="POST" action="{{ route('user.consultation.store') }}" autocomplete="off">
+                <form method="POST" action="{{ route('user.consultation.store') }}" autocomplete="off" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <input type="hidden" name="_method" value="PUT">
@@ -73,14 +73,14 @@
                                                 <label class="form-control-label" for="name">Name<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="name" class="form-control"
-                                                    name="applicant_name" placeholder="Name" value="{{ $user->name }}">
+                                                    name="applicant_name" placeholder="Name" value="{{ $user->name }}"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="birthdate">Date of Birth</label>
                                                 <input type="date" id="birthdate" class="form-control"
-                                                    name="applicant_birthdate" placeholder="date of birth">
+                                                    name="applicant_birthdate" placeholder="date of birth"required>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                                         class="small text-danger">*</span></label>
                                                 <input type="email" id="applicant_email" class="form-control"
                                                     name="applicant_email"
-                                                    placeholder="example@example.com"value="{{ $user->email }}">
+                                                    placeholder="example@example.com"value="{{ $user->email }}"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -121,7 +121,7 @@
                                                     Number</label>
                                                 <input type="text" id="phoneNo" class="form-control"
                                                     name="applicant_phoneNo" placeholder="phone number"
-                                                    value="{{ $user->contact }}">
+                                                    value="{{ $user->contact }}"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -129,7 +129,7 @@
                                                 <label class="form-control-label"
                                                     for="applicant_nationality">Nationality</label>
                                                 <input type="text" id="applicant_nationality" class="form-control"
-                                                    name="applicant_nationality" placeholder="Nationality">
+                                                    name="applicant_nationality" placeholder="Nationality"required>
                                             </div>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
                                                 <label class="form-control-label" for="spouse_name">Name<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="spouse_name" class="form-control"
-                                                    name="spouse_name" placeholder="Name">
+                                                    name="spouse_name" placeholder="Name"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -152,7 +152,7 @@
                                                 <label class="form-control-label" for="spouse_birthdate">Date of
                                                     Birth</label>
                                                 <input type="date" id="spouse_birhtdate" class="form-control"
-                                                    name="spouse_birthdate" placeholder="date of birth">
+                                                    name="spouse_birthdate" placeholder="date of birth"required>
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@
                                                 <label class="form-control-label" for="spouse_email">Email address<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="email" id="spouse_email" class="form-control"
-                                                    name="spouse_email" placeholder="example@example.com">
+                                                    name="spouse_email" placeholder="example@example.com"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -171,7 +171,7 @@
                                                 <label class="form-control-label" for="spouse_IcNum">IC Number<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="spouse_IcNum" class="form-control"
-                                                    name="spouse_IcNum" placeholder="IC Number">
+                                                    name="spouse_IcNum" placeholder="IC Number"required>
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="spouse_gender">Gender</label>
                                                 <input type="text" id="spouse_gender" class="form-control"
-                                                    name="spouse_gender" placeholder="gender">
+                                                    name="spouse_gender" placeholder="gender"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -189,7 +189,7 @@
                                                 <label class="form-control-label" for="spouse_phoneNo">Phone
                                                     Number</label>
                                                 <input type="text" id="spouse_phoneNo" class="form-control"
-                                                    name="spouse_phoneNo" placeholder="phone number">
+                                                    name="spouse_phoneNo" placeholder="phone number"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -197,7 +197,7 @@
                                                 <label class="form-control-label"
                                                     for="spouse_nationality">Nationality</label>
                                                 <input type="text" id="spouse_nationality" class="form-control"
-                                                    name="spouse_nationality" placeholder="Nationality">
+                                                    name="spouse_nationality" placeholder="Nationality"required>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@
                                                 <label class="form-control-label" for="date">Consultation Date<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="date" id="date" class="form-control" name="date"
-                                                    placeholder="date">
+                                                    placeholder="date"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -232,8 +232,8 @@
                                             <div class="form-group">
                                                 <label class="form-control-label" for="document">Document<span
                                                         class="small text-danger">*</span></label>
-                                                <input type="text" id="document" class="form-control"
-                                                    name="document" placeholder="document">
+                                                <input type="file" id="file" class="form-control"
+                                                    name="file" placeholder="document"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -259,7 +259,7 @@
                                         <div class="col-lg-12">
                                             <label class="form-control-label" for="description">Description<span
                                                     class="small text-danger">*</span></label>
-                                            <textarea id="description" class="form-control" name="description" placeholder="Description">
+                                            <textarea id="description" class="form-control" name="description" placeholder="Description"required>
 
                                             </textarea>
 

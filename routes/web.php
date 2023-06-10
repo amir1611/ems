@@ -38,6 +38,7 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::put('/consultation/update/{id}', [ConsultationController::class, 'update'])->name('consultation.update');
         Route::get('/consultation/{id}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
         
+        Route::get('template/{fileName}', [ConsultationController::class, 'displayFile'])->name('file.display');
         Route::delete('/consultant/destroy/{id}', [ConsultantController::class, 'destroy'])->name('consultant.destroy');
         Route::put('/consultant/update/{id}', [ConsultantController::class, 'update'])->name('consultant.update');
         Route::get('/consultant/{id}/edit', [ConsultantController::class, 'edit'])->name('consultant.edit');

@@ -208,33 +208,12 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="document">Document<span
-                                                class="small text-danger">*</span></label>
-                                        <input type="text" id="document" class="form-control" name="document"
-                                            placeholder="document" value="{{ $data['document'] }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
                                         <label class="form-control-label" for="location">Location<span
                                                 class="small text-danger">*</span></label>
                                         <input type="text" id="location" class="form-control" name="location"
                                             placeholder="Location" value="{{ $data['location']['value'] }}" disabled>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <label class="form-control-label" for="description">Description<span
-                                            class="small text-danger">*</span></label>
-                                    <textarea id="description" class="form-control" name="description" placeholder="{{ $data['description'] }}"
-                                        disabled>
-                                    {{ $data['description'] }}
-                                </textarea>
-
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="status">status<span
@@ -244,7 +223,41 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+    
+                                        <label class="form-control-label" for="description">Description<span
+                                                class="small text-danger">*</span></label>
+                                        <textarea id="description" class="form-control" name="description" placeholder="{{ $data['description'] }}"
+                                            disabled>
+                                                        {{ $data['description'] }}
+                                            </textarea>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="document">Document<span
+                                                class="small text-danger">*</span></label>
+                                        {{-- <input type="text" id="document" class="form-control" name="document"
+                                                placeholder="document" value="{{ $data['document'] }}" disabled> --}}
+                                        <a class="btn btn-primary"
+                                            href="{{ route('staff.file.display', ['fileName' => $data['document']]) }}"
+                                            target="_blank">View File</a>
+    
+                                    </div>
+                                </div>
+    
+                            </div>
+                            @if($data['status']['code'] == 1)
+                            <div>
+                                
+                            </div>
+                            @endif
                         </div>
                         <br>
                         <!-- Button -->
