@@ -75,5 +75,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::group(['middleware' => ['auth', 'verified', 'user-role:admin']], function () {
         Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
+   
     });
 });
