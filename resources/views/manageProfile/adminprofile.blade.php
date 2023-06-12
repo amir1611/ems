@@ -1,7 +1,15 @@
 @extends('layouts.adminNav')
 
 @section('main-content')
+    <h1 style="border-radius: 30px;margin-left: 667px;margin-right: 708px;"> REGISTER STAFF</h1>
     <div class="container2" style="background-color: white;border-radius: 30px;margin-left: 100px;margin-right: 100px;">
+
+        @if(session('success'))
+            <div id="success-alert" class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('admin.store-staff') }}" style=" margin-left: 77px; padding-top: 51px ">
             @csrf
             <div class="row mb-3">
@@ -93,4 +101,14 @@
             </div>
         </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Hide success message after 5 seconds
+        $(document).ready(function() {
+            setTimeout(function() {
+                $("#success-alert").fadeOut("slow");
+            }, 5000); // 5 seconds
+        });
+    </script>
 @endsection

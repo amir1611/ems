@@ -86,15 +86,16 @@ class UserController extends Controller
 
     public function storeStaff(Request $request)
     {
-
         $request->merge([
             'password' => Hash::make('1234'),
-            'role' => 0,
+            'role' => 1,
+            'staff_id' => 'stf' . rand(100, 999),
         ]);
+
 
         // Create a new staff user
         $user = User::create($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Staff registered successfully.');
     }
 }

@@ -59,7 +59,7 @@
     </div>
 
     <div class="container2"
-        style="background-color: white;border-radius: 30px;margin-top: -1px;margin-bottom: 20px;margin-left: 394px;margin-right: 491px;">
+        style="background-color: white;border-radius: 30px;margin-top: -1px;margin-bottom: 20px;margin-left: 100px;margin-right: 100px;">
         <form action="{{ route('staff.update-password-staff') }}" method="POST">
             @csrf
             <div class="row mt-4 profile-header">

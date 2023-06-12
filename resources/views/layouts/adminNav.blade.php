@@ -46,7 +46,7 @@
                 <span>{{ __('Register Staff') }}</span></a>
         </li>
 
-        <!-- Nav Item - Profile -->
+        {{-- <!-- Nav Item - Profile -->
         <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-user"></i>
@@ -61,7 +61,7 @@
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Manage User') }}</span>
             </a>
-        </li>
+        </li> --}}
 
 
         <li class="nav-item">
