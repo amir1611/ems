@@ -1,6 +1,6 @@
 @extends('layouts.userNav')
 @section('main-content')
-<div class="container2" style="background-color: white;border-radius: 30px;margin-left: 395px;margin-right: 498px;">
+<div class="container2" style="background-color: white;border-radius: 30px;margin-left: 100px;margin-right: 100px;">
     <form action="{{ route('user.update', [auth()->user()->id]) }}" method="post">
         @method('PUT')
         @csrf
