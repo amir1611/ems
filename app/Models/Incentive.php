@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Incentive extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id',
+        'name',
+        'job',
+        'job_type',
+        'salary',
+        'date',
+        'status',
+        'heir',
+        'docs'
+    ];
 }

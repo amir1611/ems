@@ -79,7 +79,7 @@
         <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Copies Of Documents') }}</span>
+                <span>{{ __('Incentives') }}</span>
             </a>
         </li>
 
