@@ -1,15 +1,15 @@
 @extends('layouts.adminNav')
 
 @section('main-content')
-    <div class="card-body">
-        <form method="POST" action="{{ route('admin.store-staff') }}">
+    <div class="container2" style="background-color: white;border-radius: 30px;margin-left: 100px;margin-right: 100px;">
+        <form method="POST" action="{{ route('admin.store-staff') }}" style=" margin-left: 77px; padding-top: 51px ">
             @csrf
             <div class="row mb-3">
                 <label for="ic" class="col-md-4 col-form-label text-md-end">{{ __('IC Number') }}</label>
 
                 <div class="col-md-6">
-                    <input id="ic" type="text" class="form-control @error('ic') is-invalid @enderror" name="ic"
-                        value="{{ old('ic') }}" required autocomplete="ic" autofocus>
+                    <input id="ic" type="text" class="form-control @error('ic') is-invalid @enderror"
+                        name="ic" value="{{ old('ic') }}" required autocomplete="ic" autofocus>
 
                     @error('ic')
                         <span class="invalid-feedback" role="alert">
@@ -38,8 +38,8 @@
                 <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
 
                 <div class="col-md-6">
-                    <select id="gender" class="form-select @error('gender') is-invalid @enderror form-control" name="gender" required
-                        autocomplete="gender" autofocus>
+                    <select id="gender" class="form-select @error('gender') is-invalid @enderror form-control"
+                        name="gender" required autocomplete="gender" autofocus>
                         <option value="" hidden selected></option>
                         <option value="male" {{ old('gender') === 'male' ? 'selected' : '' }}>Male</option>
                         <option value="female" {{ old('gender') === 'female' ? 'selected' : '' }}>Female</option>
@@ -84,7 +84,7 @@
             </div>
 
 
-            <div class="row mb-0">
+            <div class="row mb-0" style=" margin-left: 430px; padding-top: 20px; padding-bottom: 43px;">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">
                         {{ __('Register') }}
@@ -92,9 +92,5 @@
                 </div>
             </div>
         </form>
-    </div>
-    </div>
-    </div>
-    </div>
     </div>
 @endsection
