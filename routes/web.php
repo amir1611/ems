@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ConsultantController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\IncentiveController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrepCourseController;
 
@@ -78,3 +79,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
    
     });
 });
+
+Route::prefix('user')->name('user.')->group(function () {
+
+    Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
+        Route::get('/profile', [HomeController::class, 'indexUser'])->name('home');
+        Route::post('/profile', [HomeController::class, 'updatePassword'])->name('update-password-user');
+        Route::put('/{id}/update', [UserController::class, 'update'])->name('update');
+        Route::get('/incentive/manage', [IncentiveController::class, 'indexInc'])->name('incentive.create');
+    });
+});
+
+
