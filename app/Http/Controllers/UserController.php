@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -76,5 +77,25 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function registerStaff()
+    {
+        return view('manageProfile.adminprofile');
+    }
+
+    public function storeStaff(Request $request)
+    {
+        $request->merge([
+            'password' => Hash::make('1234'),
+            'role' => 1,
+            'staff_id' => 'stf' . rand(100, 999),
+        ]);
+
+
+        // Create a new staff user
+        $user = User::create($request->all());
+
+        return redirect()->back()->with('success', 'Staff registered successfully.');
     }
 }
