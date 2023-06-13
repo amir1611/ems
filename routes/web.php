@@ -38,7 +38,7 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultation/show/{id}', [ConsultationController::class, 'show'])->name('consultation.show');
         Route::put('/consultation/update/{id}', [ConsultationController::class, 'update'])->name('consultation.update');
         Route::get('/consultation/{id}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
-
+        
         Route::get('template/{fileName}', [ConsultationController::class, 'displayFile'])->name('file.display');
         Route::delete('/consultant/destroy/{id}', [ConsultantController::class, 'destroy'])->name('consultant.destroy');
         Route::put('/consultant/update/{id}', [ConsultantController::class, 'update'])->name('consultant.update');
@@ -47,8 +47,12 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/manage', [ConsultantController::class, 'manage'])->name('consultant.manage');
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
+
+        Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
+        //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
+        
     });
-});
+});  
 
 Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function () {
     Route::get('/', [HomeController::class, 'indexStaff'])->name('home');
@@ -69,9 +73,13 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/prepCourse/manage', [PrepCourseController::class, 'manage'])->name('prepCourse.manage');
         Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
         Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
-        Route::get('/incentive/manage', [IncentiveController::class, 'indexInc'])->name('incentive.create');
+
+        Route::get('/incentive/apply', [IncentiveController::class, 'indexInc'])->name('incentive.apply');
+        Route::post('/incentive/insert', [IncentiveController::class, 'insert'])->name('incentive.insert');
+        Route::post('/incentive/update', [IncentiveController::class, 'view2'])->name('incentive.update');
     });
 });
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
@@ -79,5 +87,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
         Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
         Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
-    });
+    });
 });

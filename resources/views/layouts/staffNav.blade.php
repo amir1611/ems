@@ -62,6 +62,13 @@
             </a>
         </li>
 
+        <li class="nav-item ">
+            <a class="nav-link" href="{{route('staff.incentive.view')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>{{ __('Incentive') }}</span>
+            </a>
+        </li>
+
         <!-- Nav Item - About -->
         <li class="nav-item">
             <a class="nav-link" href="#">
