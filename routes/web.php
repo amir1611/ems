@@ -47,8 +47,12 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/manage', [ConsultantController::class, 'manage'])->name('consultant.manage');
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
+
+        Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
+        //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
+        
     });
-});
+});  
 
 Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function () {
     Route::get('/', [HomeController::class, 'indexStaff'])->name('home');
@@ -69,6 +73,10 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/prepCourse/manage', [PrepCourseController::class, 'manage'])->name('prepCourse.manage');
         Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
         Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
+
+        Route::get('/incentive/apply', [IncentiveController::class, 'indexInc'])->name('incentive.apply');
+        Route::post('/incentive/insert', [IncentiveController::class, 'insert'])->name('incentive.insert');
+        Route::post('/incentive/update', [IncentiveController::class, 'view2'])->name('incentive.update');
     });
 });
 
@@ -77,16 +85,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::group(['middleware' => ['auth', 'verified', 'user-role:admin']], function () {
         Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
    
-    });
-});
-
-Route::prefix('user')->name('user.')->group(function () {
-
-    Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
-        Route::get('/profile', [HomeController::class, 'indexUser'])->name('home');
-        Route::post('/profile', [HomeController::class, 'updatePassword'])->name('update-password-user');
-        Route::put('/{id}/update', [UserController::class, 'update'])->name('update');
-        Route::get('/incentive/manage', [IncentiveController::class, 'indexInc'])->name('incentive.create');
     });
 });
 
