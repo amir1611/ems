@@ -87,5 +87,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
         Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
         Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
-    });
+});
 });

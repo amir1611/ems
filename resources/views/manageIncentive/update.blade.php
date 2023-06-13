@@ -1,4 +1,4 @@
-@extends('layouts.staffNav')
+@extends('layouts.userNav')
 
 @section('main-content')
     <div class="container">
