@@ -60,17 +60,57 @@ class DatabaseSeeder extends Seeder
       [
         'name' => 'location',
         'code' => 1,
-        'value' => 'Bentong',
+        'value' => 'PEJABAT AGAMA ISLAM CAMERON HIGHLANDS',
       ],
       [
         'name' => 'location',
         'code' => 2,
-        'value' => 'Pekan',
+        'value' => 'PEJABAT AGAMA ISLAM LIPIS',
       ],
       [
         'name' => 'location',
         'code' => 3,
-        'value' => 'Lipis',
+        'value' => 'PEJABAT AGAMA ISLAM JERANTUT',
+      ],
+      [
+        'name' => 'location',
+        'code' => 4,
+        'value' => 'PEJABAT AGAMA ISLAM RAUB',
+      ],
+      [
+        'name' => 'location',
+        'code' => 5,
+        'value' => 'PEJABAT AGAMA ISLAM TERMERLOH',
+      ],
+      [
+        'name' => 'location',
+        'code' => 6,
+        'value' => 'PEJABAT AGAMA ISLAM BENTONG',
+      ],
+      [
+        'name' => 'location',
+        'code' => 7,
+        'value' => 'PEJABAT AGAMA ISLAM MARAN',
+      ],
+      [
+        'name' => 'location',
+        'code' => 8,
+        'value' => 'PEJABAT AGAMA ISLAM KUANTAN',
+      ],
+      [
+        'name' => 'location',
+        'code' => 9,
+        'value' => 'PEJABAT AGAMA ISLAM BERA',
+      ],
+      [
+        'name' => 'location',
+        'code' => 10,
+        'value' => 'PEJABAT AGAMA ISLAM PEKAN',
+      ],
+      [
+        'name' => 'location',
+        'code' => 11,
+        'value' => 'PEJABAT AGAMA ISLAM ROMPIN',
       ],
       //department
       [

@@ -10,8 +10,7 @@ class Consultant extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'user_id',
-        'staff_id',
+        'created_by',
         'IcNum',
         'name',
         'email',
@@ -21,9 +20,9 @@ class Consultant extends Model
 
     ];
 
-    public function user()
+    public function created_by()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'created_by');
     }
 
     public function location()

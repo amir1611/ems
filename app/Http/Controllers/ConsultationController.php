@@ -18,16 +18,15 @@ class ConsultationController extends Controller
     //
     public function manage()
     {
-        $datas = Consultation::with('staff', 'consultant', 'applicant', 'spouse', 'status')->paginate(3);
-        // dd($datas);
+        $datas = Consultation::with('consultant', 'applicant', 'spouse', 'status')->where('ref_status_id',1)
+        ->paginate(3);
         return view('manageConsultation.manage', compact('datas'));
     }
 
     public function userManage()
     {
         $applicant = Applicant::where('user_id', Auth()->user()->id)->first();
-        $datas = Consultation::with('staff', 'consultant', 'applicant', 'spouse', 'status',)->where('app_id', $applicant->id)->paginate(9);
-        // dd($datas);
+        $datas = Consultation::with('consultant', 'applicant', 'spouse', 'status',)->where('app_id', $applicant->id)->paginate(9);
         return view('manageConsultation.userManage', compact('datas'));
     }
 
@@ -41,32 +40,27 @@ class ConsultationController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
         $file = $request->file('file');
-        // dd($file,$request);
         $fileName = $request->input('applicant_name') . $request->input('date') . '.pdf';
 
         Storage::disk('local')->makeDirectory('template');
 
-        // Store the file inside the 'template' directory
         Storage::disk('local')->put('template/' . $fileName, file_get_contents($file->getRealPath()));
 
 
         $user = ([
             'name' => $request->applicant_name,
             'email' =>  $request->applicant_email,
-            // 'ic' => $request->applicant_IcNum,
-            // 'gender' => $request->applicant_gender,
             'contact' => $request->applicant_phoneNo,
         ]);
-        // dd($user);
+
         User::where('id', Auth()->user()->id)->update($user);
 
         $applicant = Applicant::where('user_id', Auth()->user()->id)->first();
         $applicant->birthdate = $request->applicant_birthdate;
         $applicant->nationality = $request->applicant_nationality;
+        $applicant->houseaddress = $request->applicant_address;
         $applicant->save();
-        // Applicant::create($applicant);
         $existingSpouse = Spouse::where('ic', $request->spouse_IcNum)->first();
 
         if ($existingSpouse) {
@@ -82,6 +76,7 @@ class ConsultationController extends Controller
         $spouse->gender = $request->spouse_gender;
         $spouse->phonenumber = $request->spouse_phoneNo;
         $spouse->nationality = $request->spouse_nationality;
+        $spouse->address = $request->spouse_address;
         $spouse->save();
 
         $consultation = ([
@@ -92,12 +87,10 @@ class ConsultationController extends Controller
             'ref_slot_id' => $request->ref_slot_id,
             'description' => $request->description,
             'document' => $fileName,
-            // 'ref_status_id' => 3,
         ]);
         Consultation::create($consultation);
 
 
-        // dd($applicant,$spouse, $consultation, $spouse);
 
         return redirect()->route('user.consultation.manage')
             ->with('success', "consultation Successfully Posted!");
@@ -107,11 +100,7 @@ class ConsultationController extends Controller
     {
         $data = Consultation::with('spouse', 'applicant.user', 'slot', 'location')->find($id)->toArray();
         $consultants = Consultant::all();
-        // dd($data);
-        // $role = Reference::where('code', $data['ref_role_id'])
-        //     ->where('name', 'roles')
-        //     ->get();
-
+      
         return view('manageConsultation.edit', compact('data', 'consultants', 'id'));
     }
 
@@ -119,6 +108,7 @@ class ConsultationController extends Controller
     {
         $request->merge([
             'ref_status_id' => 3,
+            'managed_by' => auth()->user()->id,
         ]);
         Consultation::find($id)->update($request->all());
 
@@ -142,8 +132,14 @@ class ConsultationController extends Controller
     {
         $data = Consultation::with('spouse', 'applicant.user', 'location', 'slot', 'status')->find($id)
             ->toArray();
-        // dd($data);
         return view('manageConsultation.show', compact('data', 'id'));
+    }
+    
+    public function userShow($id)
+    {
+        $data = Consultation::with('consultant','spouse', 'applicant.user', 'location', 'slot', 'status')->find($id)
+            ->toArray();
+        return view('manageConsultation.userShow', compact('data', 'id'));
     }
 
     public function displayFile($fileName)
