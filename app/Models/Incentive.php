@@ -10,7 +10,7 @@ class Incentive extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'name',
+        'applicant_name',
         'job',
         'job_type',
         'salary',

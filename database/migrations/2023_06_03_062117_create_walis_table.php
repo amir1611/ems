@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('phonenumber')->nullable();
             $table->string('address')->nullable();
+            $table->string('relationship')->nullable();
         });
     }
 
