@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -8,6 +9,9 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\IncentiveController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrepCourseController;
+use App\Http\Controllers\MarriageCardController;
+use App\Http\Controllers\SpouseController;
+use App\Models\Application;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +51,9 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/manage', [ConsultantController::class, 'manage'])->name('consultant.manage');
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
+        
+        //pian
+        Route::put('/manageCard/manage', [MarriageCardController::class, 'manage'])->name('manageCard.manage');
     });
 });
 
@@ -58,7 +65,7 @@ Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function
 
 Route::prefix('user')->name('user.')->group(function () {
 
-
+    
     Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
         Route::get('/profile', [HomeController::class, 'indexUser'])->name('home');
         Route::post('/profile', [HomeController::class, 'updatePassword'])->name('update-password-user');
@@ -70,6 +77,15 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
         Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
         Route::get('/incentive/manage', [IncentiveController::class, 'indexInc'])->name('incentive.create');
+        
+        //pian 
+        Route::get('/register/spouseList', [SpouseController::class, 'spouseList'])->name('register.spouseList');
+        Route::get('/register/create', [ApplicationController::class, 'create'])->name('register.create');
+        Route::get('/register/manageUser', [ApplicationController::class, 'manageUser'])->name('register.manageUser');
+        Route::get('/card/manageUser', [MarriageCardController::class, 'manageUser'])->name('card.manageUser');
+        Route::get('/card/create', [MarriageCardController::class, 'create'])->name('card.create');
+        Route::get('/card/uploadPayment', [MarriageCardController::class, 'payment'])->name('card.uploadPayment');
+        Route::put('/register/uploadPayment', [ApplicationController::class, 'payment'])->name('register.uploadPayment');
     });
 });
 

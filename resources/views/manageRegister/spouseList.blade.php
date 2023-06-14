@@ -38,7 +38,7 @@
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
-                                   {{$data->applicant->user->name}} data</p>
+                                   {{$data->applicant->user->name}}</p>
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
@@ -46,7 +46,7 @@
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
-                                   {{$data->created_at->format('Y-m-d')}} date</p>
+                                   {{$data->created_at->format('Y-m-d')}}</p>
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
@@ -68,6 +68,12 @@
                         </td>
                     </tr>
                 @endif
+                <tr>
+                    <td colspan="3" class="align-middle text-center">
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('user.register.create')}}'">Add New</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('user.register.manageUser')}}'">Manage Registration</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <div class="px-3 pt-4">

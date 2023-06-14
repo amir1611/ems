@@ -24,14 +24,13 @@
                     <th class="profile-label">Spouse Name</th>
                     <td>
                         <input class="form-control profile-input" type="text" name="sname" id="sname"
-                            value="{{ strtoupper(Auth::guard('web')->user()->name) }}" readonly>
+                            value="siti" readonly>
                     </td>
                 </tr>
             </table>
         </div>
         <div class="text-center">
-            <input class="btn profile-btn" type="submit" onclick="return confirm('Confirm to apply marriage card?')"
-                value="Apply Card Application">
+            <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('user.card.uploadPayment')}}'">Proceed to payment</button>
         </div>
         <br>
         <br>
