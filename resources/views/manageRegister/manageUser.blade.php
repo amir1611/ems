@@ -37,8 +37,7 @@
                                 <p class="text-sm font-weight-bold mb-0 ms-3">{{ $counter }}</p>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bold mb-0">
-                                   {{$data->applicant->user->name}} data</p>
+                                <p class="text-sm font-weight-bold mb-0"> {{$data->applicant->user->name}}</p>
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
@@ -46,16 +45,11 @@
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
-                                   {{$data->created_at->format('Y-m-d')}} date</p>
+                                   {{$data->created_at->format('Y-m-d')}}</p>
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
                                     Status</p>
-                            </td>
-                            <td class="align-middle text-end">
-                                <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                    <a class="text-info me-3" href="{{route('staff.consultation.edit', ['id' => $data->id])}}"><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
-                                </div>
                             </td>
                         </tr>
                     @endforeach
@@ -68,6 +62,11 @@
                         </td>
                     </tr>
                 @endif
+                <tr>
+                    <td colspan="3" class="align-middle text-center">
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('user.register.spouseList')}}'">Manage Spouse List</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <div class="px-3 pt-4">
