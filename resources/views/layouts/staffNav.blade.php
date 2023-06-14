@@ -63,7 +63,20 @@
         </li>
 
         <li class="nav-item ">
+            <a class="nav-link" href="{{route('staff.consultant.manage')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Marriage Registration</span>
             </a>
+            </li>
+            
+            <li class="nav-item ">
+            <a class="nav-link" href="{{route('staff.manageCard.manage')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Marriage Card</span>
+
+            <a class="nav-link" href="{{route('staff.incentive.view')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>{{ __('Incentive') }}</span></a>
         </li>
 
         <!-- Nav Item - About -->
