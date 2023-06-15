@@ -79,13 +79,21 @@ class UserController extends Controller
         //
     }
 
+    /**
+     * Display the specified resource.
+     */
     public function registerStaff()
     {
+        // Return back to the Admin Profile page
         return view('manageProfile.adminprofile');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function storeStaff(Request $request)
     {
+        // Validate the request
         $request->merge([
             'password' => Hash::make('1234'),
             'role' => 1,

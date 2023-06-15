@@ -38,7 +38,7 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultation/show/{id}', [ConsultationController::class, 'show'])->name('consultation.show');
         Route::put('/consultation/update/{id}', [ConsultationController::class, 'update'])->name('consultation.update');
         Route::get('/consultation/{id}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
-        
+
         Route::get('template/{fileName}', [ConsultationController::class, 'displayFile'])->name('file.display');
         Route::delete('/consultant/destroy/{id}', [ConsultantController::class, 'destroy'])->name('consultant.destroy');
         Route::put('/consultant/update/{id}', [ConsultantController::class, 'update'])->name('consultant.update');
@@ -50,9 +50,9 @@ Route::prefix('staff')->name('staff.')->group(function () {
 
         Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
         //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
-        
+
     });
-});  
+});
 
 Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function () {
     Route::get('/', [HomeController::class, 'indexStaff'])->name('home');
