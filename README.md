@@ -1,11 +1,3 @@
-<p align="center">
-  <a target="_blank" href="https://drive.google.com/file/d/1djK6UeE4AQm_dUc08Hb2j1gSo-i3s8Co/view">
-    <img src="https://drive.google.com/file/d/1djK6UeE4AQm_dUc08Hb2j1gSo-i3s8Co/view" width="400" alt="E-MUNAKAHAT Logo">
-  </a>
-</p>
-
-
-
 # E-MUNAKAHAT
 ONLINE MARRIAGE MANAGEMENT SYSTEM FOR PAHANG STATE GOVERNMENT
 
