@@ -1,4 +1,9 @@
-<p align="center"><atarget="_blank"><img src="https://drive.google.com/file/d/1djK6UeE4AQm_dUc08Hb2j1gSo-i3s8Co/view?usp=sharing" width="400" alt="E-MUANAKAHAT Logo"></a></p>
+<p align="center">
+  <a target="_blank" href="https://example.com/image.jpg">
+    <img src="https://example.com/image.jpg" width="400" alt="E-MUANAKAHAT Logo">
+  </a>
+</p>
+
 
 
 # E-MUNAKAHAT
