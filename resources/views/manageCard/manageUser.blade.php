@@ -45,11 +45,7 @@
                                 <p class="text-sm font-weight-bold mb-0">
                                     Status</p>
                             </td>
-                            <td class="align-middle text-end">
-                                <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                    <a class="text-info me-3" href="{{route('staff.consultation.edit', ['id' => $data->id])}}"><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
-                                </div>
-                            </td>
+                        
                         </tr>
                     @endforeach
                 @else
@@ -61,6 +57,11 @@
                         </td>
                     </tr>
                 @endif
+                <tr>
+                    <td colspan="3" class="align-middle text-center">
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('user.card.create')}}'">Request New Card</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <div class="px-3 pt-4">

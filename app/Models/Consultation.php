@@ -15,16 +15,16 @@ class Consultation extends Model
         'description',
         'document',
         'ref_location_id',
-        'staff_id',
+        'managed_by',
         'sp_id',
         'app_id',
         'cons_id',
         'ref_status_id'
     ];
 
-    public function staff()
+    public function managed_by()
     {
-        return $this->belongsTo(User::class, 'staff_id');
+        return $this->belongsTo(User::class, 'managed_by');
     }
 
     public function spouse()

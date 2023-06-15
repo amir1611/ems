@@ -1,4 +1,4 @@
-@extends('layouts.staffNav')
+@extends('layouts.userNav')
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -6,7 +6,7 @@
 </head>
 @section('main-content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{ __('Consutation') }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Consultation') }}</h1>
 
     @if (session('success'))
         <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -250,17 +250,29 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-    
+
                                         <label class="form-control-label" for="description">Description<span
                                                 class="small text-danger">*</span></label>
                                         <textarea id="description" class="form-control" name="description" placeholder="{{ $data['description'] }}"
-                                            disabled>
-                                                        {{ $data['description'] }}
-                                            </textarea>
+                                            disabled>{{ $data['description'] }}</textarea>
                                     </div>
-    
+
                                 </div>
                             </div>
+                            @if ($data['status']['code'] == 3)
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+
+                                            <label class="form-control-label" for="consultant">Consultant Name<span
+                                                    class="small text-danger">*</span></label>
+                                            <input type="text" id="consultant" class="form-control" name="consultant" placeholder="{{ $data['consultant']['name'] }}"
+                                                disabled>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @endif
                             <br>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -270,18 +282,13 @@
                                         {{-- <input type="text" id="document" class="form-control" name="document"
                                                 placeholder="document" value="{{ $data['document'] }}" disabled> --}}
                                         <a class="btn btn-primary"
-                                            href="{{ route('staff.file.display', ['fileName' => $data['document']]) }}"
+                                            href="{{ route('user.file.display', ['fileName' => $data['document']]) }}"
                                             target="_blank">View File</a>
-    
+
                                     </div>
                                 </div>
-    
+
                             </div>
-                            @if($data['status']['code'] == 1)
-                            <div>
-                                
-                            </div>
-                            @endif
                         </div>
                         <br>
                         <!-- Button -->

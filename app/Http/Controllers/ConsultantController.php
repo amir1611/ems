@@ -36,7 +36,9 @@ class ConsultantController extends Controller
 
     public function store(Request $request)
     {
-        
+        $request->merge([
+            'created_by' => Auth()->user()->id,
+        ]);
         Consultant::create($request->all());
         // dd($request);
         return redirect()->route('staff.consultant.manage')

@@ -6,7 +6,7 @@
 </head>
 @section('main-content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{ __('Profile') }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Consultation') }}</h1>
 
     @if (session('success'))
         <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -44,6 +44,7 @@
                         <label for="example-color-input" class="form-control-label mb-3 fs-4">Consultation's Detail</label>
                         <div class="nav-wrapper position-relative end-0">
                             <br> 
+                            {{-- start application details --}}
                             <label for="example-color-input" class="form-control-label mb-3">Applicants's Detail</label>
                             <div class="pl-lg-4">
                                 <div class="row">
@@ -115,8 +116,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+    
+                                            <label class="form-control-label" for="applicant_address">Home Address<span
+                                                    class="small text-danger">*</span></label>
+                                            <textarea id="applicant_address" class="form-control" name="applicant_address"
+                                                disabled>{{ $data['applicant']['houseaddress'] }}</textarea>
+                                        </div>
+    
+                                    </div>
+                                </div>
                             </div>
+                            {{-- end application details --}}
                             <br>
+                            {{-- start spouse details --}}
                             <label for="example-color-input" class="form-control-label mb-3">Spouse's Detail</label>
                             <div class="pl-lg-4">
                                 <div class="row">
@@ -188,8 +203,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+    
+                                            <label class="form-control-label" for="spouse_address">Home Address<span
+                                                    class="small text-danger">*</span></label>
+                                            <textarea id="spouse_address" class="form-control" name="spouse_address"
+                                                disabled>{{ $data['spouse']['address'] }}</textarea>
+                                        </div>
+    
+                                    </div>
+                                </div>
                             </div>
+                            {{-- end spouse details --}}
                             <br>
+                            {{-- start marriage details --}}
                             <label for="example-color-input" class="form-control-label mb-3">Marriage's Detail</label>
                             <div class="pl-lg-4">
                                 <div class="row">
@@ -257,6 +286,7 @@
                                 </div>
 
                             </div>
+                            {{-- end marriage detail --}}
 
                         </div>
                         <!-- Button -->

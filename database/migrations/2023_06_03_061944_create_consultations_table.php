@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('document')->nullable();
             $table->foreignId('ref_location_id')->nullable();
-            $table->foreignId('staff_id')->nullable();
+            $table->foreignId('managed_by')->nullable();
             $table->foreignId('sp_id')->nullable();
             $table->foreignId('app_id')->nullable();
             $table->foreignId('cons_id')->nullable();
