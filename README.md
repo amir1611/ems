@@ -1,6 +1,6 @@
 <p align="center">
-  <a target="_blank" href="https://example.com/image.jpg">
-    <img src="https://example.com/image.jpg" width="400" alt="E-MUANAKAHAT Logo">
+  <a target="_blank" href="https://drive.google.com/file/d/1djK6UeE4AQm_dUc08Hb2j1gSo-i3s8Co/view">
+    <img src="https://drive.google.com/file/d/1djK6UeE4AQm_dUc08Hb2j1gSo-i3s8Co/view" width="400" alt="E-MUNAKAHAT Logo">
   </a>
 </p>
 
@@ -43,8 +43,8 @@ To publish this project
 Deploy with npm
 ```bash
   1. npm install 
-  2. php aritsan serve
-  3. cd my-project
+  2. php artisan serve
+  3. npm run dev
 ```
     
 ## Download
