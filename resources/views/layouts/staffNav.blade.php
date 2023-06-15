@@ -63,14 +63,14 @@
         </li>
 
         <li class="nav-item ">
-            <a class="nav-link" href="{{route('staff.consultant.manage')}}">
+            <a class="nav-link" href="{{route('staff.register.manage')}}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Marriage Registration</span>
             </a>
             </li>
             
             <li class="nav-item ">
-            <a class="nav-link" href="{{route('staff.manageCard.manage')}}">
+            <a class="nav-link" href="{{route('staff.card.manage')}}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Marriage Card</span>
 

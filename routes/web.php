@@ -53,8 +53,10 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
         Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
         //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
-        //pianhensem
-        Route::put('/manageCard/manage', [MarriageCardController::class, 'manage'])->name('manageCard.manage');
+        //pian
+        Route::get('/card/manage', [MarriageCardController::class, 'manage'])->name('card.manage');
+        Route::get('/register/manage', [ApplicationController::class, 'manReg'])->name('register.manage');
+
 
     });
 });
