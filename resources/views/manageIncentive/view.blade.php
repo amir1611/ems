@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Manage Consultation</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Manage Incentive</h6>
             </div>
 
             <table class="table table-bordered table-hover">
