@@ -9,6 +9,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\IncentiveController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrepCourseController;
+
 use App\Http\Controllers\MarriageCardController;
 use App\Http\Controllers\SpouseController;
 use App\Models\Application;
@@ -51,6 +52,8 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/manage', [ConsultantController::class, 'manage'])->name('consultant.manage');
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
+
+        Route::get('/prepCourse/applicantList', [PrepCourseController::class, 'show']);
         Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
         Route::get('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
@@ -75,6 +78,16 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/consultation/manage', [ConsultationController::class, 'userManage'])->name('consultation.manage');
         Route::get('/consultation/create', [ConsultationController::class, 'create'])->name('consultation.create');
         Route::put('/consultation/store', [ConsultationController::class, 'store'])->name('consultation.store');
+
+        Route::get('/prepCourse/payment', [PrepCourseController::class, 'createForm']);
+        Route::post('/prepCourse/payment', [PrepCourseController::class, 'payment'])->name('prepCourse.payment');
+
+        Route::get('/application/manageMarReq', [ApplicationController::class, 'manage'])->name('application.manageMarReq');
+        Route::get('/application/createMarReq', [ApplicationController::class, 'create'])->name('application.createMarReq');
+        Route::put('/application/storeMarReq', [ApplicationController::class, 'store'])->name('application.storeMarReq');
+
+        Route::get('/application/document', [ApplicationController::class, 'createForm']);
+        Route::post('/application/document', [ApplicationController::class, 'document'])->name('application.document');
         Route::get('template/{fileName}', [ConsultationController::class, 'displayFile'])->name('file.display');
         Route::get('/consultation/{id}/show', [ConsultationController::class, 'userShow'])->name('consultation.show');
         Route::get('/prepCourse/manage', [PrepCourseController::class, 'manage'])->name('prepCourse.manage');

@@ -25,6 +25,7 @@ class Application extends Model
         "witness_id",
     ];
 
+
     public function applicant()
     {
         return $this->belongsTo(Applicant::class,'applicant_id');
