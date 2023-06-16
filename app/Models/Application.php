@@ -21,6 +21,16 @@ class Application extends Model
         'age'
     ];
 
+    public function spouse()
+    {
+        return $this->belongsTo(Spouse::class, 'sp_id');
+    }
+    
+    public function applicant()
+    {
+        return $this->belongsTo(Applicant::class, 'app_id');
+    }
+
 }
 
 // apl_Num

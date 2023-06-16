@@ -4,89 +4,79 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Applicant;
-// use App\Models\Spouse;
 use App\Models\User;
 use App\Models\Prep_course;
+use App\Models\payment;
+use App\Models\applicantList;
 
 class PrepCourseController extends Controller
 {
-    
+
     public function manage()
     {
         $datas = Prep_course::paginate(3);
         return view('managePrepCourse.manage', compact('datas'));
     }
 
-    // public function update(User $user, Request $request)
-    // {   
-    //     $user->update([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'updated_at' => now()
-    //     ]);
+    public function create()
+    {
+        $user =  Auth()->user();
+        return view('managePrepCourse.create', compact('user'));
+    }
 
-    //     return $this->success('profile','Profile updated successfully!');
-    // }
-
-    // public function userManage()
-    // {
-    //     $datas = Consultation::paginate(8);
-    //     return view('manageConsultation.userManage', compact('datas'));
-    // }
-
-    // public function create()
-    // {
-    //     $user =  Auth()->user();
-    //     return view('managePrepCourse.create', compact('user'));
-    // }
-    
-    // public function store(Request $request)
-    // {
-    //     $user = ([
-    //         // 'name' => $request->applicant_name,
-    //         'email' =>  $request->applicant_email,
-    //         'ic' => $request->applicant_IcNum,
-    //         'gender' => $request->applicant_gender,
-    //         'contact' => $request->applicant_phoneNo,
-    //     ]);
-    //     User::find(Auth()->user())->update($user->all());
-    //     $applicant = ([
-    //         'user_id'=> Auth()->user()->id,
-    //         'birthdate' => $request->applicant_birthdate,
-    //         'nationality' => $request->applicant_nationality
-    //     ]);
-
-    //     $app = new Applicant();
-    //     $app->fill($applicant);
-    //     $app->save();
-    //     Applicant::create($applicant);
-    //     $spouse = ([
-
-    //         'name' => $request->spouse_name,
-    //         'birthdate' => $request->spouse_birthdate,
-    //         'email' => $request->spouse_email,
-    //         // 'IcNum' => $request->spouse_IcNum,
-    //         'gender' => $request->spouse_gender,
-    //         'phonenumber' => $request->spouse_phoneNo,
-    //         'nationality' => $request->spouse_nationality
-
-    //     ]);
-    //     $sp = new Spouse();
-    //     $sp->fill($spouse);
-    //     $sp->save();
-        // $consultation = ([
-        // 'spouse_id'=>$sp->id,
-        // 'applicant_id'=>$app->id,
-        // 'date'=> $request->date,
-        // 'slot'=> $request->slot,
-        // 'document'=> $request->document,
+    public function store(Request $request)
+    {
+        // $user = ([
+        // 'name' => $request->applicant_name,
+        //     'email' =>  $request->applicant_email,
+        //     'ic' => $request->applicant_IcNum,
+        //     'gender' => $request->applicant_gender,
+        //     'contact' => $request->applicant_phoneNo,
         // ]);
-        // Consultation::create($consultation);
-        // dd($app,$sp,$consultation,$spouse);
+        // User::where('id', Auth()->user()->id)->update($user);
 
-        // return redirect()->route('user.consultation.manage')
-        // ->with('success', "consultation Successfully Posted!");
+        // User::find(Auth()->user())->update($user);
+        $applicant = ([
+            'user_id' => Auth()->user()->id,
+            'birthdate' => $request->applicant_birthdate,
+            'nationality' => $request->applicant_nationality,
+            'houseaddress' => $request->applicant_houseaddress
+        ]);
+
+        $app = new Applicant();
+        $app->fill($applicant);
+        $app->save();
+
+        return redirect()->route('user.prepCourse.manage')
+            ->with('success', "Successfully Posted!");
+    }
+
+    // public function createForm()
+    // {
+    //     return view('payment');
     // }
+
+    public function payment(Request $req)
+    {
+        $req->validate([
+            'payments' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
+        ]);
+        $fileModel = new payment;
+        if ($req->payments()) {
+            $fileName = time() . '_' . $req->file->getClientOriginalName();
+            $filePath = $req->payments('payments')->storeAs('uploads', $fileName, 'public');
+            $fileModel->name = time() . '_' . $req->file->getClientOriginalName();
+            $fileModel->paymentProof = '/storage/' . $filePath;
+            $fileModel->save();
+            return back()
+                ->with('success', 'File has been uploaded.')
+                ->with('payment', $fileName);
+        }
+    }
+
+    function show()
+    {
+        $data = applicantList::all();
+        return view('applicantList', ['list' => $data]);
+    }
 }
-
-

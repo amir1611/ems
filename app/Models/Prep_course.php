@@ -12,9 +12,9 @@ class Prep_course extends Model
 
         'id',
         'app_id',
-        'staff_id',
-        'payment_proof',
-        // 'marriage_requestInfo'
+        'sp_id',
+        'paymentProof',
+        'ref_location_id'
 
     ];
 
@@ -23,8 +23,13 @@ class Prep_course extends Model
         return $this->belongsTo(User::class, 'app_id');
     }
 
-    public function staff()
+    public function spouse()
     {
-        return $this->belongsTo(Staff::class, 'staff_id');
+        return $this->belongsTo(Spouse::class, 'sp_id');
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Reference::class, 'ref_location_id');
     }
 }

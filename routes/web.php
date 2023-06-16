@@ -7,6 +7,7 @@ use App\Http\Controllers\ConsultantController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrepCourseController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/manage', [ConsultantController::class, 'manage'])->name('consultant.manage');
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
+
+        Route::get('/prepCourse/applicantList', [PrepCourseController::class, 'show']);
     });
 });
 
@@ -57,9 +60,19 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/consultation/manage', [ConsultationController::class, 'userManage'])->name('consultation.manage');
         Route::get('/consultation/create', [ConsultationController::class, 'create'])->name('consultation.create');
         Route::put('/consultation/store', [ConsultationController::class, 'store'])->name('consultation.store');
-      		Route::get('/prepCourse/manage', [PrepCourseController::class, 'manage'])->name('prepCourse.manage');
-		Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
-		Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
+        Route::get('/prepCourse/manage', [PrepCourseController::class, 'manage'])->name('prepCourse.manage');
+        Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
+        Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
+
+        Route::get('/prepCourse/payment', [PrepCourseController::class, 'createForm']);
+        Route::post('/prepCourse/payment', [PrepCourseController::class, 'payment'])->name('prepCourse.payment');
+
+        Route::get('/application/manage', [ApplicationController::class, 'manage'])->name('application.manage');
+        Route::get('/application/create', [ApplicationController::class, 'create'])->name('application.create');
+        Route::put('/application/store', [ApplicationController::class, 'store'])->name('application.store');
+
+        Route::get('/application/document', [ApplicationController::class, 'createForm']);
+        Route::post('/application/document', [ApplicationController::class, 'payment'])->name('application.document');
     });
 });
 

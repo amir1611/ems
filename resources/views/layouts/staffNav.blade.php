@@ -49,6 +49,13 @@
 
         <!-- Nav Item - Profile -->
         <li class="nav-item ">
+            <a class="nav-link" href="{{route('staff.prepCourse.applicantList')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>{{ __('List of Applicant') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item ">
             <a class="nav-link" href="{{route('staff.consultation.manage')}}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Consultation') }}</span>

@@ -29,8 +29,14 @@ class Applicant extends Model
         return $this->hasMany(Consultation::class);
     }
 
-    public function consultation()
+    public function prep_course()
     {
-        return $this->hasMany(Consultation::class);
+        return $this->hasMany(Prep_course::class);
     }
+
+    public function application()
+    {
+        return $this->hasMany(Application::class);
+    }
+
 }
