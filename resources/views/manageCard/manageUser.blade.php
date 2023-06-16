@@ -35,11 +35,11 @@
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
-                                   {{$data->applicant->user->name}} data</p>
+                                   {{$data->applicant->user->name}}</p>
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
-                                   {{$data->created_at->format('Y-m-d')}} date</p>
+                                   {{$data->created_at->format('Y-m-d')}}</p>
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
