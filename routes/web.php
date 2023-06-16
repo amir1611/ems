@@ -94,7 +94,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('template/{fileName}', [ConsultationController::class, 'displayFile'])->name('file.display');
         Route::get('/consultation/{id}/show', [ConsultationController::class, 'userShow'])->name('consultation.show');
         Route::get('/prepCourse/manage', [PrepCourseController::class, 'manage'])->name('prepCourse.manage');
-        Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
+        Route::get('/prepCourse/create/{id}', [PrepCourseController::class, 'create'])->name('prepCourse.create');
         Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
 
         Route::get('/incentive/manage', [IncentiveController::class, 'indexInc'])->name('incentive.create');

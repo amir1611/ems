@@ -8,44 +8,37 @@ use App\Models\User;
 use App\Models\Prep_course;
 use App\Models\payment;
 use App\Models\applicantList;
+use App\Models\Reference;
 
 class PrepCourseController extends Controller
 {
 
     public function manage()
     {
-        $datas = Prep_course::paginate(3);
-        return view('managePrepCourse.manage', compact('datas'));
+        $locations = Reference::where('name', 'location')->orderBy('code')->paginate(8);
+        // $datas = Prep_course::paginate(3);
+        return view('managePrepCourse.manage1', compact('locations'));
     }
 
-    public function create()
+    public function create($id)
     {
         $user =  Auth()->user();
-        return view('managePrepCourse.create', compact('user'));
+        return view('managePrepCourse.create', compact('user','id'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        // $user = ([
-        // 'name' => $request->applicant_name,
-        //     'email' =>  $request->applicant_email,
-        //     'ic' => $request->applicant_IcNum,
-        //     'gender' => $request->applicant_gender,
-        //     'contact' => $request->applicant_phoneNo,
-        // ]);
-        // User::where('id', Auth()->user()->id)->update($user);
-
-        // User::find(Auth()->user())->update($user);
-        $applicant = ([
+        $prepCourse = ([
             'user_id' => Auth()->user()->id,
             'birthdate' => $request->applicant_birthdate,
             'nationality' => $request->applicant_nationality,
-            'houseaddress' => $request->applicant_houseaddress
+            'houseaddress' => $request->applicant_houseaddress,
+            'ref_location_id' => $id,
         ]);
 
-        $app = new Applicant();
-        $app->fill($applicant);
-        $app->save();
+        $pCourse = new Prep_course();
+        $pCourse->fill($prepCourse);
+        $pCourse->save();
 
         return redirect()->route('user.prepCourse.manage')
             ->with('success', "Successfully Posted!");
