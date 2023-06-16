@@ -47,27 +47,28 @@
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->applicant->name}} name</p>
+                                       {{$data->applicant->user->name}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                       {{$data->applicant->user->ic}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->Spouse->name}} Spouse</p>
+                                       {{$data->Spouse->name}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                       {{$data->Spouse->ic}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->created_at->format('Y-m-d')}} date</p>
+                                       {{$data->created_at}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                        Status</p>
+                                        {{$data->status->value}}</p>
                                 </td>
                                 <td class="align-middle text-end">
                                     <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                        <a class="text-info me-3"><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
-                                        <a class="text-success me-3"><i class="fa fa-pencil-square-o fa-lg"
-                                                aria-hidden="true"></i></a>
-                                        <a class="text-danger" href="#"><i class="fa fa-trash-o fa-lg"
-                                                aria-hidden="true"></i></a>
+                                        <a class="text-info me-3" href="{{route('user.consultation.show', ['id' => $data->id])}}"><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
+                                       
                                     </div>
                                 </td>
                             </tr>

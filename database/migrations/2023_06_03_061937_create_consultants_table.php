@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('consultants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('staff_id')->nullable();
+            $table->foreignId('created_by')->nullable();
             $table->string('IcNum')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();

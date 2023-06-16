@@ -28,7 +28,6 @@ class Applicant extends Model
     {
         return $this->hasMany(Consultation::class);
     }
-
     public function prep_course()
     {
         return $this->hasMany(Prep_course::class);
@@ -38,5 +37,4 @@ class Applicant extends Model
     {
         return $this->hasMany(Application::class);
     }
-
 }

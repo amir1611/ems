@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Witness extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id',
+        'name',
+        'phonenumber'
+        
+    ];
+
+    public function witness(){
+        return $this->hasOne(Application::class);
+    }
 }

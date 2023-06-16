@@ -18,63 +18,131 @@ class DatabaseSeeder extends Seeder
     ]);
 
     $this->registerReference();
+    $this->registerApplicant();
   }
-
+  
+  public function registerApplicant()
+  {
+    $datas = [
+      //applicant
+      [
+        'user_id' => '3',
+      ],
+      [
+        'user_id' => '4',
+      ],
+    ];
+    
+    foreach ($datas as $data) {
+      DB::table('applicants')->insert($data);
+    }
+  }
   public function registerReference()
   {
     $datas = [
+      //consultation-status
+      [
+        'name' => 'consultation-status',
+        'code' => 1,
+        'value' => 'Pending',
+      ],
+      [
+        'name' => 'consultation-status',
+        'code' => 2,
+        'value' => 'Declined',
+      ],
+      [
+        'name' => 'consultation-status',
+        'code' => 3,
+        'value' => 'Approved',
+      ],
       //location
       [
         'name' => 'location',
         'code' => 1,
-        'value' => 'Bentong',
+        'value' => 'PEJABAT AGAMA ISLAM CAMERON HIGHLANDS',
       ],
       [
         'name' => 'location',
         'code' => 2,
-        'value' => 'Pekan',
+        'value' => 'PEJABAT AGAMA ISLAM LIPIS',
       ],
       [
         'name' => 'location',
         'code' => 3,
-        'value' => 'Lipis',
+        'value' => 'PEJABAT AGAMA ISLAM JERANTUT',
+      ],
+      [
+        'name' => 'location',
+        'code' => 4,
+        'value' => 'PEJABAT AGAMA ISLAM RAUB',
+      ],
+      [
+        'name' => 'location',
+        'code' => 5,
+        'value' => 'PEJABAT AGAMA ISLAM TERMERLOH',
+      ],
+      [
+        'name' => 'location',
+        'code' => 6,
+        'value' => 'PEJABAT AGAMA ISLAM BENTONG',
+      ],
+      [
+        'name' => 'location',
+        'code' => 7,
+        'value' => 'PEJABAT AGAMA ISLAM MARAN',
+      ],
+      [
+        'name' => 'location',
+        'code' => 8,
+        'value' => 'PEJABAT AGAMA ISLAM KUANTAN',
+      ],
+      [
+        'name' => 'location',
+        'code' => 9,
+        'value' => 'PEJABAT AGAMA ISLAM BERA',
+      ],
+      [
+        'name' => 'location',
+        'code' => 10,
+        'value' => 'PEJABAT AGAMA ISLAM PEKAN',
+      ],
+      [
+        'name' => 'location',
+        'code' => 11,
+        'value' => 'PEJABAT AGAMA ISLAM ROMPIN',
       ],
       //department
       [
         'name' => 'department',
         'code' => 1,
-        'value' => 'divorce',
+        'value' => 'Divorce',
       ],
       [
         'name' => 'department',
         'code' => 2,
-        'value' => 'advice',
+        'value' => 'Consultation',
       ],
       [
         'name' => 'department',
         'code' => 3,
-        'value' => 'complaint',
+        'value' => 'Complaint',
       ],
+      //slot
       [
-        'name' => 'department',
-        'code' => 4,
-        'value' => 'consultation',
-      ],
-      //roles
-      [
-        'name' => 'roles',
+        'name' => 'slot',
         'code' => 8,
-        'value' => 'user',
+        'value' => '10.30 am - 12.30 pm',
       ],
       [
-        'name' => 'roles',
+        'name' => 'slot',
         'code' => 9,
-        'value' => 'expert',
+        'value' => '12.30 am - 2.30 pm',
       ],
       [
-        'name' => 'roles',
+        'name' => 'slot',
         'code' => 10,
-        'value' => 'admin',
+        'value' => '2.30 am - 4.30 am',
       ],
       //complaint-type
       [
@@ -91,22 +159,6 @@ class DatabaseSeeder extends Seeder
         'name' => 'complaint-type',
         'code' => 3,
         'value' => 'Inapproriate Feedback',
-      ],
-      //complaint-status
-      [
-        'name' => 'complaint-status',
-        'code' => 1,
-        'value' => 'In Investigation',
-      ],
-      [
-        'name' => 'complaint-status',
-        'code' => 2,
-        'value' => 'On Hold',
-      ],
-      [
-        'name' => 'complaint-status',
-        'code' => 3,
-        'value' => 'Resolved',
       ],
     ];
 

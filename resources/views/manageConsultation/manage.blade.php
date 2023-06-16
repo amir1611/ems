@@ -41,23 +41,44 @@
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->applicant->user->name}} data</p>
+                                       {{$data->applicant->user->name}}</p>
+                                       
+                                       <p class="text-sm font-weight-bold mb-0">
+                                        {{$data->applicant->user->ic}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->spouse_name}} Spouse</p>
+                                       {{$data->spouse->name}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                       {{$data->spouse->ic}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->created_at->format('Y-m-d')}} date</p>
+                                       {{$data->created_at}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                        Status</p>
+                                        {{$data->status->value}}</p>
                                 </td>
                                 <td class="align-middle text-end">
                                     <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                        <a class="text-info me-3" href="{{route('staff.consultation.edit', ['id' => $data->id])}}"><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
+                                        <span class="ml-4">
+
+                                            <a class="text-primary me-3" href="{{route('staff.consultation.edit', ['id' => $data->id])}}"><i class="fas fa-pencil-alt fa-lg" aria-hidden="true"></i></a>
+                                        </span>
+                                            <span class="ml-4">
+                                                <a class="text-success me-3" href="{{route('staff.consultation.show', ['id' => $data->id])}}"><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
+
+                                            </span>
+                                            <span class="ml-4">
+                                                <form method="POST" action="{{ route('staff.consultation.decline', ['id' => $data->id]) }}" style="display: inline;">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="btn btn-link p-0 border-0 bg-transparent">
+                                                        <i class="fas fa-times fa-lg text-danger" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                            </span>
                                         {{-- <a class="text-success me-3"><i class="fa fa-pencil-square-o fa-lg"
                                                 aria-hidden="true"></i></a>
                                         <a class="text-danger" href="#"><i class="fa fa-trash-o fa-lg"

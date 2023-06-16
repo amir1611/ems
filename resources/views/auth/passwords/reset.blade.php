@@ -13,12 +13,14 @@
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
+                        <!-- Email Address -->
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
+                                <!-- Display error message if the user email is already registered-->
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -27,6 +29,7 @@
                             </div>
                         </div>
 
+                        <!-- New Password -->
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -41,6 +44,7 @@
                             </div>
                         </div>
 
+                        <!-- Confirmation Password -->
                         <div class="row mb-3">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
@@ -48,6 +52,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -25,7 +25,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary3 sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -67,6 +67,23 @@
                 <i class="fas fa-fw fa-user"></i>
                 <span>Consultant</span>
             </a>
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link" href="{{route('staff.register.manage')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Marriage Registration</span>
+            </a>
+            </li>
+            
+            <li class="nav-item ">
+            <a class="nav-link" href="{{route('staff.card.manage')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Marriage Card</span>
+
+            <a class="nav-link" href="{{route('staff.incentive.view')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>{{ __('Incentive') }}</span></a>
         </li>
 
         <!-- Nav Item - About -->
