@@ -41,14 +41,16 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
             <a class="nav-link" href="{{route('user.home')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Profile') }}</span></a>
         </li>
 
         <!-- Nav Item - Profile -->
         <li class="nav-item">
-            <a class="nav-link" href="{{route('user.prepCourse.manage')}}">
-                <i class="fas fa-fw fa-user"></i>
+            <a class="nav-link"
+                style="padding-right: 5px;"
+                href="{{route('user.prepCourse.manage')}}">
+                <i class="fas fa-fw fa-book"></i>
                 <span>{{ __('Marriage Preparation Course') }}</span>
             </a>
         </li>
@@ -62,11 +64,11 @@
 
         <li class="nav-item">
             <a class="nav-link" href="user.application.manageMarReq">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-cloud"></i>
                 <span>{{ __('Marriage Application') }}</span>
             </a>
         </li>
-{{-- 
+{{--
         <li class="nav-item">
             <a class="nav-link" href="{{route('user.application.document')}}">
                 <i class="fas fa-fw fa-hands-helping"></i>
@@ -77,7 +79,7 @@
         <!-- Nav Item - Profile -->
         <li class="nav-item ">
             <a class="nav-link" href="{{route('user.register.spouseList')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-magic"></i>
                 <span>{{ __('Marriage Registration') }}</span>
             </a>
         </li>
@@ -106,14 +108,14 @@
 
         <li class="nav-item">
             <a class="nav-link" href="{{route('user.incentive.apply')}}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-fw  fa-credit-card-alt"></i>
                 <span>{{ __('Incentives') }}</span>
             </a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-fw fa-pencil-square"></i>
                 <span>{{ __('Document Correction') }}</span>
             </a>
         </li>
@@ -122,7 +124,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-fw  fa-sign-out"></i>
                 <span>{{ __('Log Out') }}</span>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
