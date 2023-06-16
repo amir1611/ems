@@ -8,24 +8,20 @@ use App\Models\Reference;
 
 class ConsultantController extends Controller
 {
-    //
+    //redirect staff to staff.contultant.manage route
     public function index()
     {
         return redirect()->route('staff.consultant.manage');
     }
 
+    //redirect staff to manage consultant page
     public function manage()
     {
         $datas = Consultant::with('location','department')->paginate(10);
         return view('manageConsultant.manage',compact('datas'));
     }
-
-    public function userManage()
-    {
-        $datas = Consultant::paginate(8);
-        return view('manageConsultant.userManage',compact('datas'));
-    }
-
+    
+    //redirect staff to create consultant page
     public function create()
     {
         $locations = Reference::where('name', 'location')->orderBy('code')->get();
@@ -34,6 +30,7 @@ class ConsultantController extends Controller
         return view('manageConsultant.create', compact('locations','departments'));
     }
 
+    //store the newly create consultant to database
     public function store(Request $request)
     {
         $request->merge([
@@ -45,6 +42,7 @@ class ConsultantController extends Controller
             ->with('success', "consultant Successfully Added");
     }
 
+    //update the consultant info in the database
     public function update(Request $request, $id)
     {
         Consultant::find($id)->update($request->all());
@@ -54,6 +52,7 @@ class ConsultantController extends Controller
 
     }
     
+    //redirect staff to edit consultant page
     public function edit($id)
     {
         $consultant = Consultant::find($id)->with('location','department')->first();
@@ -64,6 +63,7 @@ class ConsultantController extends Controller
 
     }
 
+    //redirect staff to show consultant page
     public function show($id)
     {
         $consultant = Consultant::find($id)->with('location','department')->first();
@@ -71,12 +71,7 @@ class ConsultantController extends Controller
         return view('manageConsultant.show', compact('consultant'));
     }
 
-    // public function destroy($id)
-    // {
-    //     Consultant::find($id)->delete();
-
-    //     return response()->json(['success' => true]);
-    // }
+    //delete consultant
     public function destroy($id)
     {
         $consultant = Consultant::find($id);

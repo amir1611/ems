@@ -116,22 +116,17 @@ class DatabaseSeeder extends Seeder
       [
         'name' => 'department',
         'code' => 1,
-        'value' => 'divorce',
+        'value' => 'Divorce',
       ],
       [
         'name' => 'department',
         'code' => 2,
-        'value' => 'advice',
+        'value' => 'Consultation',
       ],
       [
         'name' => 'department',
         'code' => 3,
-        'value' => 'complaint',
-      ],
-      [
-        'name' => 'department',
-        'code' => 4,
-        'value' => 'consultation',
+        'value' => 'Complaint',
       ],
       //slot
       [
