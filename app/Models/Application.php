@@ -18,8 +18,33 @@ class Application extends Model
         'phonenumber',
         'nationality',
         'address',
-        'age'
+        'age',
+        'spouse_id',
+        'applicant_id',
+        'wali_id',
+        "witness_id",
     ];
+
+
+    public function applicant()
+    {
+        return $this->belongsTo(Applicant::class,'applicant_id');
+    }
+
+    public function spouse()
+    {
+        return $this->belongsTo(Spouse::class, 'spouse_id');
+    }
+
+    public function wali()
+    {
+        return $this->belongsTo(Wali::class, 'wali_id');
+    }
+
+    public function witness()
+    {
+        return $this->belongsTo(Witness::class,'witness_id');
+    }
 
 }
 

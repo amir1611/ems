@@ -9,9 +9,14 @@
                         <img src="assets/banner.png" style="margin-left: 76px;" draggable="false" alt="">
                     </div>
                     <div class="card-body">
+
+                        <!--Route to Login-->
                         <form method="POST" action="{{ route('login') }}">
+
                             @csrf
                             <div class="row mb-3">
+
+                                <!-- Display error message if the user ic number is already registered-->
                                 @if (session('error'))
                                     <span class="alert alert-danger alert-dismissible fade show" role="alert">
                                         <strong>{{ session('error') }}</strong>
@@ -19,12 +24,16 @@
                                             aria-label="Close"></button>
                                     </span>
                                 @endif
+
+                                <!-- Display error message if the user ic number is already registered-->
                                 <label for="ic"
                                     class="col-md-4 col-form-label text-md-end">{{ __('IC Number') }}</label>
                                 <div class="col-md-6">
                                     <input id="ic" type="text"
                                         class="form-control @error('ic') is-invalid @enderror" name="ic"
                                         value="{{ old('ic') }}" required autocomplete="ic" autofocus>
+
+                                        
                                     @error('ic')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -33,6 +42,8 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
+
+                                <!-- Password -->
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
                                 <div class="col-md-6">
@@ -49,11 +60,15 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
+
+                                        <!-- Remember Me -->
                                         <input class="form-check-input" style=" margin-top: 10px; " type="checkbox"
                                             name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <label class="form-check-label" for="remember">
                                             {{ __('Remember Me') }}
                                         </label>
+
+                                        <!--Route to password.request-->
                                         @if (Route::has('password.request'))
                                             <a class="btn btn-link ml-5" href="{{ route('password.request') }}"
                                                 style="  margin-right: 0; padding-left: 114px; ">

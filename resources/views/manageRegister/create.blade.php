@@ -34,7 +34,7 @@
 
                 {{-- <div class="card-body"> --}}
 
-                <form method="POST" action="{{ route('user.consultation.store') }}" autocomplete="off">
+                <form method="POST" action="{{ route('user.register.uploadPayment') }}" autocomplete="off">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <input type="hidden" name="_method" value="PUT">
@@ -215,13 +215,6 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="wali_ic">Wali IC Number</label>
-                                                <input type="text" id="wali_ic" class="form-control"
-                                                    name="wali_ic" placeholder="IC Number">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group focused">
                                                 <label class="form-control-label" for="wali_number">Wali HP Number</label>
                                                 <input type="text" id="wali_number" class="form-control"
                                                     name="wali_number" placeholder="HP Number">
@@ -253,25 +246,12 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="witness_ic">Witness IC Number</label>
-                                                <input type="text" id="witness_ic" class="form-control"
-                                                    name="witness_ic" placeholder="IC Number">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group focused">
                                                 <label class="form-control-label" for="witness_number">Witness HP Number</label>
                                                 <input type="text" id="witness_number" class="form-control"
                                                     name="witness_number" placeholder="HP Number">
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group focused">
-                                                <label class="form-control-label" for="witness_address">Witness Address</label>
-                                                <input type="text" id="witness_address" class="form-control"
-                                                    name="witness_address" placeholder="Address">
-                                            </div>
-                                        </div>
+                                        
                                         
                                     </div>
 
@@ -285,7 +265,7 @@
                     <div class="pl-lg-4">
                         <div class="row">
                             <div class="col text-center">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <button type="submit" class="btn btn-primary">Proceed to payment</button>
                             </div>
                         </div>
                     </div>

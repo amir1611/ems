@@ -33,7 +33,7 @@
                         <td>{{$incentives->status}}</td>
                         <td>{{$incentives->heir}}</td>
                         <td>         
-                            <a href="" class="btn btn-danger" title="Delete" onclick="return confirm('Confirm to delete?')">DELETE</a>
+                            <a href="{{route('staff.incentive.delete',['id' => $incentives->id])}}" class="btn btn-danger" title="Delete" onclick="return confirm('Confirm to delete?')">DELETE</a>
 						</td>
                     </tr>
                     @endforeach 

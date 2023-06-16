@@ -47,17 +47,45 @@
 
         <!-- Nav Item - Profile -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('user.prepCourse.manage')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>{{ __('Marriage Preparation Course') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('user.prepCourse.payment')}}">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>{{ __('Payment Proof') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="user.application.manage">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Marriage Application') }}</span>
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('user.application.document')}}">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>{{ __('Marriage Support Document') }}</span>
+            </a>
+        </li>
+
         <!-- Nav Item - Profile -->
         <li class="nav-item ">
-            <a class="nav-link" href="{{route('user.consultation.manage')}}">
+            <a class="nav-link" href="{{route('user.register.spouseList')}}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Marriage Registration') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link" href="{{route('user.card.manageUser')}}">
+                <i class="fa-solid fa-address-card"></i>
+                <span>{{ __('Marriage Card') }}</span>
             </a>
         </li>
 

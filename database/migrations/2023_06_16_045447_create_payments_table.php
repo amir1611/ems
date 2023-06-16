@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prep_courses', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->string('paymentProof')->nullable();
             $table->timestamps();
-            $table->foreignId('app_id')->nullable();
-            $table->foreignId('sp_id')->nullable();
-            $table->binary('paymentProof')->nullable();
-            $table->foreignId('ref_location_id')->nullable();
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prep_courses');
+        Schema::dropIfExists('payments');
     }
 };
