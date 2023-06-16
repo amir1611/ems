@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Marriage_card;
+use App\Models\Application;
 class MarriageCardController extends Controller
 {
     public function manage(){
         
-        $datas = Marriage_card::paginate(10);
+        $datas = Application::paginate(10);
         return view('manageCard.manage', compact('datas'));
     }
     public function index(){
@@ -19,7 +20,7 @@ class MarriageCardController extends Controller
         return view('manageCard.create', compact('user'));
     }
     public function manageUser(){
-        $datas = Marriage_card::paginate(10);
+        $datas = Application::paginate(10);
         return view('manageCard.manageUser', compact('datas'));
     }
     public function store(Request $request){
