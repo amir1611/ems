@@ -7,6 +7,7 @@ use App\Models\Marriage_card;
 class MarriageCardController extends Controller
 {
     public function manage(){
+        
         $datas = Marriage_card::paginate(10);
         return view('manageCard.manage', compact('datas'));
     }

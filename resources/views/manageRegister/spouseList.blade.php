@@ -42,7 +42,7 @@
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">
-                                    Spouse</p>
+                                    {{$data->spouse->name}}</p>
                             </td>
                             <td>
                                 <p class="text-sm font-weight-bold mb-0">

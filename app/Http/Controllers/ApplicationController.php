@@ -79,4 +79,9 @@ class ApplicationController extends Controller
     public function store(Request $request)
     {
     }
+    public function manReg()
+    {
+        $datas = Application::paginate(8);
+        return view('manageRegister.manage', compact('datas'));
+    }
 }
