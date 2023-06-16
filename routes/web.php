@@ -53,12 +53,15 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
 
-        Route::get('/prepCourse/applicantList', [PrepCourseController::class, 'show'])->name('prepCourse.applicantList');
+        Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
+        Route::delete('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
+        Route::get('/prepCourse/applicantList', [PrepCourseController::class, 'show']);
         Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
         Route::get('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         Route::get('/register/manage', [ApplicationController::class, 'manReg'])->name('register.manage');
         Route::get('/card/manage', [MarriageCardController::class, 'manage'])->name('card.manage');
+
     });
 });
 
@@ -93,6 +96,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/prepCourse/manage', [PrepCourseController::class, 'manage'])->name('prepCourse.manage');
         Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
         Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
+
         Route::get('/incentive/manage', [IncentiveController::class, 'indexInc'])->name('incentive.create');
         Route::get('/incentive/apply', [IncentiveController::class, 'indexInc'])->name('incentive.apply');
         Route::post('/incentive/insert', [IncentiveController::class, 'insert'])->name('incentive.insert');
