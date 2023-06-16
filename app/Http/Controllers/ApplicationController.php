@@ -85,8 +85,8 @@ class ApplicationController extends Controller
     {
         $datas = Application::paginate(8);
         return view('manageRegister.manage', compact('datas'));
-      
-      public function manageMarReq()
+    }
+    public function manageMarReq()
     {
         $datas = Application::paginate(3);
         return view('manageMarReq.manage', compact('datas'));

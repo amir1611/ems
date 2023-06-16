@@ -87,12 +87,12 @@
         </li>
 
         <!-- Nav Item - About -->
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('About') }}</span>
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal"

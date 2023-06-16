@@ -53,26 +53,26 @@
             </a>
         </li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('user.prepCourse.payment')}}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Payment Proof') }}</span>
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
-            <a class="nav-link" href="user.application.manage">
+            <a class="nav-link" href="user.application.manageMarReq">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Marriage Application') }}</span>
             </a>
         </li>
-
+{{-- 
         <li class="nav-item">
             <a class="nav-link" href="{{route('user.application.document')}}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Marriage Support Document') }}</span>
             </a>
-        </li>
+        </li> --}}
 
         <!-- Nav Item - Profile -->
         <li class="nav-item ">
@@ -89,13 +89,13 @@
             </a>
         </li>
 
-        <!-- Nav Item - About -->
+        {{-- <!-- Nav Item - About -->
         <li class="nav-item">
             <a class="nav-link" href="{{route('user.prepCourse.manage')}}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Marriage Preparation') }}</span>
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link" href="{{route('user.consultation.manage')}}">

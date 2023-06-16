@@ -53,7 +53,7 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
 
-        Route::get('/prepCourse/applicantList', [PrepCourseController::class, 'show']);
+        Route::get('/prepCourse/applicantList', [PrepCourseController::class, 'show'])->name('prepCourse.applicantList');
         Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
         Route::get('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
@@ -82,9 +82,9 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/prepCourse/payment', [PrepCourseController::class, 'createForm']);
         Route::post('/prepCourse/payment', [PrepCourseController::class, 'payment'])->name('prepCourse.payment');
 
-        Route::get('/application/manageMarReq', [ApplicationController::class, 'manage'])->name('application.manageMarReq');
-        Route::get('/application/createMarReq', [ApplicationController::class, 'create'])->name('application.createMarReq');
-        Route::put('/application/storeMarReq', [ApplicationController::class, 'store'])->name('application.storeMarReq');
+        Route::get('/application/manageMarReq', [ApplicationController::class, 'manageMarReq'])->name('application.manageMarReq');
+        Route::get('/application/createMarReq', [ApplicationController::class, 'createMarReq'])->name('application.createMarReq');
+        Route::put('/application/storeMarReq', [ApplicationController::class, 'storeMarReq'])->name('application.storeMarReq');
 
         Route::get('/application/document', [ApplicationController::class, 'createForm']);
         Route::post('/application/document', [ApplicationController::class, 'document'])->name('application.document');
