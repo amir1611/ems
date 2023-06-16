@@ -54,7 +54,6 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
         Route::get('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
-        //pian
         Route::get('/register/manage', [ApplicationController::class, 'manReg'])->name('register.manage');
         Route::get('/card/manage', [MarriageCardController::class, 'manage'])->name('card.manage');
     });
@@ -85,8 +84,6 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/incentive/apply', [IncentiveController::class, 'indexInc'])->name('incentive.apply');
         Route::post('/incentive/insert', [IncentiveController::class, 'insert'])->name('incentive.insert');
         Route::post('/incentive/update', [IncentiveController::class, 'view2'])->name('incentive.update');
-
-        //pian
         Route::get('/register/spouseList', [SpouseController::class, 'spouseList'])->name('register.spouseList');
         Route::get('/register/create', [ApplicationController::class, 'create'])->name('register.create');
         Route::get('/register/manageUser', [ApplicationController::class, 'manageUser'])->name('register.manageUser');
