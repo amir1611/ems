@@ -48,8 +48,9 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
 
+        //routing for incentive page under staff for view application and delete application 
         Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
-        //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
+        Route::delete('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         
     });
 });  
@@ -74,6 +75,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/prepCourse/create', [PrepCourseController::class, 'create'])->name('prepCourse.create');
         Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
 
+        //routing for incentive page under user for view application status and apply  
         Route::get('/incentive/apply', [IncentiveController::class, 'indexInc'])->name('incentive.apply');
         Route::post('/incentive/insert', [IncentiveController::class, 'insert'])->name('incentive.insert');
         Route::post('/incentive/update', [IncentiveController::class, 'view2'])->name('incentive.update');

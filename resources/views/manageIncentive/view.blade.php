@@ -32,9 +32,7 @@
                         <td>{{$incentives->date}}</td>
                         <td>{{$incentives->status}}</td>
                         <td>{{$incentives->heir}}</td>
-                        <td>
-							<a href="" class="btn btn-minor">EDIT</a>
-                        </td>  
+                        <td> 
                         <td>         
                             <a href="" class="btn btn-danger" title="Delete" onclick="return confirm('Confirm to delete?')">DELETE</a>
 						</td>
