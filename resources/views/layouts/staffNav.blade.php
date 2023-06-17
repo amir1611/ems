@@ -43,46 +43,46 @@
         <!-- Nav Item - Profile -->
         <li class="nav-item">
             <a class="nav-link" href="{{route('staff.home')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Profile') }}</span></a>
         </li>
 
         <!-- Nav Item - Profile -->
         <li class="nav-item ">
             <a class="nav-link" href="{{route('staff.prepCourse.applicantList')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-list"></i>
                 <span>{{ __('List of Applicant') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{route('staff.consultation.manage')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-ticket"></i>
                 <span>{{ __('Consultation') }}</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{route('staff.consultant.manage')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-address-card"></i>
                 <span>Consultant</span>
             </a>
         </li>
 
         <li class="nav-item ">
             <a class="nav-link" href="{{route('staff.register.manage')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-code-fork"></i>
                 <span>Marriage Registration</span>
             </a>
             </li>
-            
+
             <li class="nav-item ">
             <a class="nav-link" href="{{route('staff.card.manage')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-cloud"></i>
                 <span>Marriage Card</span>
 
             <a class="nav-link" href="{{route('staff.incentive.view')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-credit-card"></i>
                 <span>{{ __('Incentive') }}</span></a>
         </li>
 
@@ -97,7 +97,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-fw fa-sign-out"></i>
                 <span>{{ __('Log Out') }}</span>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
