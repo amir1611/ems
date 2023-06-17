@@ -66,11 +66,20 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="applicant_nationality">Nationality</label>
                                 <input type="text" id="applicant_nationality" class="form-control"
                                     name="applicant_nationality" placeholder="Nationality">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="document">Payment Proof<span
+                                        class="small text-danger">*</span></label>
+                                <input type="file" id="docs" class="form-control"
+                                    name="docs" placeholder="docs"required>
                             </div>
                         </div>
                     </div>

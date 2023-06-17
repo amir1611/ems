@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Applicant;
 use App\Models\User;
 use App\Models\Prep_course;
-use App\Models\payment;
 use App\Models\applicantList;
 use App\Models\Reference;
 
@@ -42,29 +41,6 @@ class PrepCourseController extends Controller
 
         return redirect()->route('user.prepCourse.manage')
             ->with('success', "Successfully Posted!");
-    }
-
-    // public function createForm()
-    // {
-    //     return view('payment');
-    // }
-
-    public function payment(Request $req)
-    {
-        $req->validate([
-            'payments' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
-        ]);
-        $fileModel = new payment;
-        if ($req->payments()) {
-            $fileName = time() . '_' . $req->file->getClientOriginalName();
-            $filePath = $req->payments('payments')->storeAs('uploads', $fileName, 'public');
-            $fileModel->name = time() . '_' . $req->file->getClientOriginalName();
-            $fileModel->paymentProof = '/storage/' . $filePath;
-            $fileModel->save();
-            return back()
-                ->with('success', 'File has been uploaded.')
-                ->with('payment', $fileName);
-        }
     }
 
     function show()
