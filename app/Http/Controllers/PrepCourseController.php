@@ -16,7 +16,7 @@ class PrepCourseController extends Controller
     {
         $locations = Reference::where('name', 'location')->orderBy('code')->paginate(8);
         // $datas = Prep_course::paginate(3);
-        return view('managePrepCourse.manage1', compact('locations'));
+        return view('managePrepCourse.manage', compact('locations'));
     }
 
     public function create($id)
